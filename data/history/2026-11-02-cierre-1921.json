@@ -1,0 +1,835 @@
+{
+  "meta": {
+    "cycle_id": "2026-11-02-cierre-1921",
+    "generated_at": "2026-11-02T19:21:40-03:00",
+    "window_start": "2026-11-02T00:00:00-03:00",
+    "window_end": "2026-11-02T19:21:40-03:00",
+    "next_update": "2026-11-02T20:00:00-03:00",
+    "status": "OPERATIVO",
+    "report_type": "RADAR_CONSOLIDADO_DIA",
+    "pre_radar_used": true,
+    "watchdog_recovery": false,
+    "visibility": "Acceso por enlace",
+    "owner": "Gabinete Senadora María José Gatica",
+    "coverage_status": "AMPLIA_CON_LIMITACIONES"
+  },
+  "executive_summary": {
+    "headline": "RADAR consolidado — lunes 2 de noviembre",
+    "summary": "El día estuvo marcado por la discusión del Presupuesto 2027 y la intervención pública de la senadora María José Gatica en MOP y Vivienda; la crisis política y jurídica del ministro Fernando Rabat y sus efectos en RN; noticias de seguridad en Los Ríos; señales económicas débiles por el Imacec; y alertas de infraestructura, educación, prevención de incendios y conectividad regional.",
+    "top_priorities": [
+      "Presupuesto 2027: obtener resultados oficiales de la Comisión Especial Mixta y seguir MOP, Vivienda, Educación, SUBDERE y programas regionales.",
+      "Caso Rabat: seguir investigación, acusación constitucional, decretos cuestionados, reparación a víctimas y posición institucional de RN.",
+      "Los Ríos: seguridad en Valdivia y Mariquina; peajes Lanco-La Unión; cartera MOP/Futrono; prevención de incendios y compromisos regionales."
+    ],
+    "what_changed": [
+      "Gatica intervino en la discusión presupuestaria pidiendo extender por un año el régimen transitorio para obras menores hasta 20.000 UTM y objetando la eliminación de anticipos para subsidios de vivienda social.",
+      "RN sostuvo una reunión de directiva centrada en la crisis Rabat y optó por no romper con el Gobierno, mientras dirigentes del partido mantienen cuestionamientos al ministro.",
+      "El Imacec de septiembre creció solo 0,2% anual, con caída de la producción de bienes y minería.",
+      "En Los Ríos se reportaron una riña con tres lesionados en Mehuín y un homicidio frustrado en Angachilla; además avanzó el debate sobre el futuro sistema de cobro en peajes de Lanco y La Unión."
+    ]
+  },
+  "alerts": [
+    {
+      "level": "CRÍTICO",
+      "title": "Presupuesto 2027 entra en fase decisiva",
+      "summary": "La Comisión Especial Mixta fue citada hoy en dos bloques, 10:00-13:00 y 15:00-20:00. El cierre consolidado aún no acredita acta final de todas las votaciones.",
+      "action": "Obtener acta/resultados oficiales y cruzar inmediatamente con prioridades de Los Ríos, MOP, Vivienda, Educación y SUBDERE.",
+      "source_ids": [
+        "s1",
+        "s2"
+      ]
+    },
+    {
+      "level": "CRÍTICO",
+      "title": "Crisis Rabat sigue escalando",
+      "summary": "El ministro sostuvo que mantiene respaldo presidencial; oposición impulsa acusación constitucional, exige decretos y plan de atención a víctimas. RN mantiene presión política, pero evita romper con el Gobierno.",
+      "action": "Separar arista jurídica, política y legislativa; monitorear decretos, Ministerio Público, AC y propuestas legales.",
+      "source_ids": [
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ]
+    },
+    {
+      "level": "ALTO",
+      "title": "Seguridad en Los Ríos",
+      "summary": "Se reportaron tres lesionados en una riña en Mehuín y un homicidio frustrado con arma de fuego en Angachilla.",
+      "action": "Solicitar seguimiento institucional a Fiscalía/Seguridad regional y evaluar necesidad de oficio solo si aparecen brechas de coordinación o prevención.",
+      "source_ids": [
+        "s7",
+        "s8"
+      ]
+    },
+    {
+      "level": "ALTO",
+      "title": "Economía con señal débil",
+      "summary": "El Imacec de septiembre avanzó 0,2% anual; minería incidió negativamente, mientras comercio y servicios crecieron.",
+      "action": "Incorporar a lectura presupuestaria y empleo regional; vigilar próximas cifras laborales y PIB trimestral.",
+      "source_ids": [
+        "s9"
+      ]
+    }
+  ],
+  "los_rios": {
+    "coverage": {
+      "consulted": 12,
+      "total": 12,
+      "communes": [
+        {
+          "name": "Valdivia",
+          "consulted": true,
+          "new_items": 3
+        },
+        {
+          "name": "Corral",
+          "consulted": true,
+          "new_items": 0
+        },
+        {
+          "name": "Lanco",
+          "consulted": true,
+          "new_items": 1
+        },
+        {
+          "name": "Los Lagos",
+          "consulted": true,
+          "new_items": 0
+        },
+        {
+          "name": "Máfil",
+          "consulted": true,
+          "new_items": 0
+        },
+        {
+          "name": "Mariquina",
+          "consulted": true,
+          "new_items": 1
+        },
+        {
+          "name": "Paillaco",
+          "consulted": true,
+          "new_items": 0
+        },
+        {
+          "name": "Panguipulli",
+          "consulted": true,
+          "new_items": 0
+        },
+        {
+          "name": "La Unión",
+          "consulted": true,
+          "new_items": 1
+        },
+        {
+          "name": "Río Bueno",
+          "consulted": true,
+          "new_items": 0
+        },
+        {
+          "name": "Futrono",
+          "consulted": true,
+          "new_items": 1
+        },
+        {
+          "name": "Lago Ranco",
+          "consulted": true,
+          "new_items": 0
+        }
+      ]
+    },
+    "items": [
+      {
+        "title": "Mehuín: tres lesionados en riña durante cabalgata no autorizada",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "Carabineros y Ministerio Público investigan un enfrentamiento ocurrido en Mehuín, Mariquina. La fuente regional reporta tres personas lesionadas.",
+        "why_it_matters": "Seguridad rural y coordinación preventiva de eventos masivos.",
+        "source_ids": [
+          "s7"
+        ]
+      },
+      {
+        "title": "Angachilla: Fiscalía investiga homicidio frustrado",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "Un automovilista recibió disparos y permanece fuera de riesgo vital. ECOH, OS9 y Labocar realizan diligencias.",
+        "why_it_matters": "Violencia armada en Valdivia y seguimiento de capacidad investigativa.",
+        "source_ids": [
+          "s8"
+        ]
+      },
+      {
+        "title": "Peajes de Lanco y La Unión migrarán a sistema mixto",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "La concesionaria proyecta desde el 8 de marzo de 2027 pistas TAG y pago manual, y desde septiembre de 2029 cobro electrónico proporcional; se informó gratuidad intracomunal para residentes.",
+        "why_it_matters": "Impacto directo en movilidad, tarifas y compromisos de concesiones para Los Ríos.",
+        "source_ids": [
+          "s10"
+        ]
+      },
+      {
+        "title": "L'Étape Chile debutó en Valdivia",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "El evento reunió cerca de 2.200 ciclistas y confirmó regreso para 2027.",
+        "why_it_matters": "Proyección turística y deportiva de Valdivia.",
+        "source_ids": [
+          "s11"
+        ]
+      },
+      {
+        "title": "Valdivia: más de $2.030 millones para conservación de dos colegios",
+        "date": "2026-11-01",
+        "state": "CONTEXTO_PREVIO",
+        "summary": "Se adjudicaron obras en Escuela Angachilla por $443.837.671 y Colegio Teniente Hernán Merino Correa por $1.586.958.711.",
+        "why_it_matters": "Infraestructura escolar y transición al SLEP.",
+        "source_ids": [
+          "s12"
+        ]
+      },
+      {
+        "title": "Futrono: acceso directo al Mocho Choshuenco desde 2027",
+        "date": "2026-11-01",
+        "state": "CONTEXTO_PREVIO",
+        "summary": "MOP enroló un primer tramo de 9 km, proyecta licitación y reconstrucción de un puente en el km 10; luego vendría un segundo tramo de 11 km.",
+        "why_it_matters": "Conectividad, turismo e inversión MOP.",
+        "source_ids": [
+          "s13"
+        ]
+      },
+      {
+        "title": "FUAS 2027: plazo hasta el 5 de noviembre",
+        "date": "2026-10-28",
+        "state": "SEGUIMIENTO",
+        "summary": "Los Ríos registró 9.334 postulaciones al cierre del primer período.",
+        "why_it_matters": "Acceso a beneficios estudiantiles y comunicación territorial.",
+        "source_ids": [
+          "s14"
+        ]
+      },
+      {
+        "title": "Prevención estival e incendios",
+        "date": "2026-11-02",
+        "state": "SEGUIMIENTO",
+        "summary": "Medios regionales consignan presentación de un plan regional de protección contra incendios forestales; a nivel nacional rige alerta preventiva por calor hasta el 31 de marzo de 2027.",
+        "why_it_matters": "Preparación regional, agricultura, zonas rurales y coordinación de emergencias.",
+        "source_ids": [
+          "s15",
+          "s16"
+        ]
+      }
+    ],
+    "regional_media_checked": [
+      "Río en Línea",
+      "Diario de Valdivia / DiarioSur",
+      "Noticias Los Ríos",
+      "Diario El Ranco",
+      "BioBioChile Los Ríos",
+      "SoyValdivia"
+    ],
+    "primary_sources_checked": [
+      "Senado",
+      "MOP/Vialidad vía antecedentes publicados",
+      "SENAPRED vía cobertura verificable",
+      "Municipalidad de Valdivia vía información reproducida por medios"
+    ]
+  },
+  "national": {
+    "items": [
+      {
+        "title": "Caso Rabat: ministro afirma respaldo del Presidente",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "Fernando Rabat aseguró que cuenta con respaldo presidencial y anunció continuidad de trabajo legislativo/técnico para abordar las consecuencias de las rebajas de condena.",
+        "source_ids": [
+          "s3",
+          "s4"
+        ]
+      },
+      {
+        "title": "Oposición mantiene acusación constitucional y exige decretos",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "La oposición sostiene que Rabat debe salir del Gobierno y pide transparentar los decretos, revisar su legalidad y establecer atención a víctimas.",
+        "source_ids": [
+          "s4",
+          "s17"
+        ]
+      },
+      {
+        "title": "Denuncia contra ministros de la Corte Suprema",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "El RADAR de las 19:00 detectó una denuncia por eventual prevaricación judicial vinculada a rebajas de condenas; paralelamente PNL estudia acusación constitucional y Republicanos anticipa apoyo condicionado.",
+        "source_ids": [
+          "s18"
+        ]
+      },
+      {
+        "title": "Imacec septiembre: +0,2% anual",
+        "date": "2026-11-02",
+        "state": "VERIFICADO_MEDIO_CON_FUENTE_BC",
+        "summary": "La producción de bienes cayó 2,0% por minería; manufactura creció 4,5%, comercio 4,5% y servicios 0,9%.",
+        "source_ids": [
+          "s9"
+        ]
+      },
+      {
+        "title": "El Teniente: Sernageomin reportó cerca de 120 observaciones",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "La autoridad señaló que los hallazgos son subsanables y no implican nuevas paralizaciones.",
+        "source_ids": [
+          "s19"
+        ]
+      },
+      {
+        "title": "Alerta Temprana Preventiva Nacional por calor",
+        "date": "2026-11-02",
+        "state": "REPORTADO_CON_FUENTE_SENAPRED",
+        "summary": "La medida rige entre el 1 de noviembre de 2026 y el 31 de marzo de 2027 en todo Chile.",
+        "source_ids": [
+          "s16"
+        ]
+      }
+    ]
+  },
+  "legislative": {
+    "senate": {
+      "delta_summary": {
+        "new": 0,
+        "modified": 0,
+        "cancelled": 1,
+        "dispatched": 0,
+        "note": "Sin acta oficial consolidada de las votaciones presupuestarias de la tarde al cierre."
+      },
+      "checklist": {
+        "cuenta": "consultada con limitaciones",
+        "tabla": "consultada",
+        "comisiones": "consultada",
+        "plazos": "consultado",
+        "votaciones": "pendiente cierre oficial",
+        "hacienda": "seguimiento reforzado",
+        "obras_publicas": "seguimiento reforzado"
+      },
+      "items": [
+        {
+          "title": "Comisión Especial Mixta de Presupuestos: doble jornada",
+          "state": "CITADA",
+          "summary": "Sesiones 10:00-13:00 y 15:00-20:00 para boletín 18.702-05.",
+          "source_ids": [
+            "s1"
+          ]
+        },
+        {
+          "title": "Comisión de Trabajo del 4 de noviembre quedó sin efecto",
+          "state": "CANCELLED",
+          "summary": "La sesión prevista sobre criterios de inversión y pérdidas del Fondo E aparece oficialmente sin efecto.",
+          "source_ids": [
+            "s1"
+          ]
+        },
+        {
+          "title": "Boletín 15.610-03: plazo de indicaciones",
+          "state": "PLAZO",
+          "summary": "Viernes 6 de noviembre de 2026 a las 12:00.",
+          "source_ids": [
+            "s20"
+          ]
+        }
+      ],
+      "next_milestones": [
+        "Resultado oficial de la Comisión Especial Mixta del 2 de noviembre",
+        "Plazo de indicaciones 15.610-03 el 6 de noviembre a las 12:00"
+      ]
+    },
+    "chamber": {
+      "delta_summary": {
+        "note": "Sin cambio de alto impacto verificado en el cierre consolidado; la Cámara se mantiene como frente de alerta temprana para AC y proyectos que puedan pasar al Senado."
+      },
+      "checklist": {
+        "sala": "consultada mediante búsquedas",
+        "comisiones": "consultadas mediante búsquedas",
+        "acusaciones_constitucionales": "seguimiento activo"
+      },
+      "items": [
+        {
+          "title": "Acusación constitucional contra Rabat en preparación",
+          "state": "SEGUIMIENTO",
+          "summary": "Bancadas opositoras mantienen la decisión de impulsar el libelo; el caso condiciona la interlocución legislativa con Justicia.",
+          "source_ids": [
+            "s17"
+          ]
+        }
+      ],
+      "next_milestones": [
+        "Ingreso formal y texto del libelo contra Rabat",
+        "Eventual AC contra ministros de la Corte Suprema"
+      ]
+    },
+    "budget_2027": {
+      "bulletin": "18.702-05",
+      "state": "CRÍTICO",
+      "latest_change": "Discusión en Comisión Especial Mixta durante el 2 de noviembre; falta consolidar resultados oficiales de cierre.",
+      "items": [
+        {
+          "title": "Intervención de María José Gatica en MOP y Vivienda",
+          "state": "REPORTADO",
+          "summary": "Pidió prorrogar un año el régimen transitorio para obras menores hasta 20.000 UTM y cuestionó eliminación de anticipos bancarios de subsidios de vivienda social.",
+          "source_ids": [
+            "s2"
+          ]
+        },
+        {
+          "title": "Debate por recortes y prioridades",
+          "state": "REPORTADO",
+          "summary": "La jornada registró críticas transversales por Educación, Vivienda, Obras Públicas y otros programas.",
+          "source_ids": [
+            "s2"
+          ]
+        },
+        {
+          "title": "Magnitudes relevantes del proyecto",
+          "state": "CONTEXTO",
+          "summary": "Entre las variaciones divulgadas: Seguridad +7,0%; Vivienda +5,8%; GORE -4,8%; Ciencia -6,4%; Servel -11,9%.",
+          "source_ids": [
+            "s21"
+          ]
+        }
+      ],
+      "dipres": [
+        "Cruzar resultados oficiales con IFP y partidas aprobadas/repuestas."
+      ],
+      "subdere": [
+        "Mantener cruce con PMU/PMB y efectos regionales."
+      ],
+      "mop": [
+        "Seguir glosas y normas que impactan obras menores y cartera Los Ríos."
+      ],
+      "regional_impact": [
+        "MOP Los Ríos",
+        "Vivienda y habitabilidad rural",
+        "Educación/JUNAEB",
+        "SUBDERE",
+        "Programas sociales y rurales"
+      ],
+      "pending_questions": [
+        "Qué partidas/glosas fueron aprobadas, rechazadas o repuestas hoy",
+        "Efecto exacto sobre compromisos regionales de la senadora"
+      ]
+    },
+    "full_lifecycle_watch": {
+      "budget_2027": "Comisión Especial Mixta",
+      "rabat_legislative_response": "proyectos con discusión inmediata anunciados",
+      "constitutional_accusations": "seguimiento Cámara"
+    }
+  },
+  "gatica": {
+    "search_variants": {
+      "María José Gatica": "consultada",
+      "senadora Gatica": "consultada",
+      "Gatica Bertín": "consultada"
+    },
+    "items": [
+      {
+        "title": "Gatica interviene en Presupuesto 2027 sobre MOP y Vivienda",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "Solicitó extensión transitoria para licitaciones de obras menores hasta 20.000 UTM y cuestionó eliminación de anticipos para subsidios de vivienda social.",
+        "source_ids": [
+          "s2"
+        ]
+      },
+      {
+        "title": "Sin otra mención pública nueva de igual relevancia localizada al cierre",
+        "date": "2026-11-02",
+        "state": "SIN_NOVEDAD_VERIFICADA",
+        "summary": "Se mantiene seguimiento de Senado, prensa nacional/regional y RN."
+      }
+    ],
+    "interventions": [
+      "Presupuesto 2027: MOP y Vivienda"
+    ],
+    "votes": [],
+    "motions": [],
+    "coauthorships": [],
+    "official_letters": [],
+    "meetings_public_activity": [],
+    "public_commitments": []
+  },
+  "rn": {
+    "checklist": {
+      "sitio_oficial": "búsqueda dirigida",
+      "directiva": "revisada vía prensa",
+      "senadores": "seguimiento",
+      "diputados": "seguimiento",
+      "controversias": "contrastadas"
+    },
+    "items": [
+      {
+        "title": "Directiva RN analiza crisis Rabat y opta por no romper con el Gobierno",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "La mesa nacional se reunió telemáticamente y discutió la magnitud de la crisis; la línea reportada fue no abandonar al Gobierno ni replicar la conducta que Republicanos tuvo frente a Piñera.",
+        "source_ids": [
+          "s5"
+        ]
+      },
+      {
+        "title": "RN pide sustento jurídico antes de apoyar AC contra ministros de la Suprema",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "Mientras PNL y Republicanos avanzan en la idea, RN llamó a determinar primero si existe base jurídica.",
+        "source_ids": [
+          "s18"
+        ]
+      },
+      {
+        "title": "Voces RN mantienen presión sobre Rabat",
+        "date": "2026-11-02",
+        "state": "REPORTADO",
+        "summary": "Rodrigo Ubilla sostuvo que el ministro debería evaluar su continuidad por el costo político y la tensión en el sector.",
+        "source_ids": [
+          "s6"
+        ]
+      }
+    ],
+    "institutional_positions": [
+      "Evitar ruptura con el Gobierno por caso Rabat",
+      "Exigir base jurídica antes de respaldar AC contra Suprema"
+    ],
+    "individual_positions": [
+      "Rodrigo Ubilla cuestiona continuidad de Rabat"
+    ],
+    "internal_dynamics_reported": [
+      "La crisis Rabat tensiona al oficialismo y obliga a RN a equilibrar respaldo al Gobierno con exigencia de responsabilidades."
+    ]
+  },
+  "investigation": {
+    "proactive_documentary_rotation": {
+      "area": "Justicia / Presupuesto / Obras Públicas",
+      "status": "EN_CURSO",
+      "findings": [
+        "Caso Rabat requiere examen separado de legalidad de decretos, responsabilidad política y eventuales cambios legislativos.",
+        "Presupuesto 2027 requiere contraste de prensa con actas y documentos oficiales antes de cerrar cifras o resultados."
+      ]
+    },
+    "contraloria": [],
+    "mercado_publico": [],
+    "transparencia": [],
+    "dipres": [
+      "Presupuesto 2027: pendiente consolidación documental de resultados de la jornada."
+    ],
+    "judiciary_fiscalia": [
+      "ECOH Los Ríos investiga homicidio frustrado en Angachilla.",
+      "Ministerio Público investiga antecedentes vinculados al caso Rabat según publicaciones del día."
+    ],
+    "ine_servel_superintendencies": [
+      "Imacec septiembre +0,2% anual informado con referencia al Banco Central.",
+      "Sernageomin reportó cerca de 120 observaciones en El Teniente."
+    ],
+    "social_media_signals": [],
+    "counterevidence_checks": [
+      "Denuncias o acusaciones constitucionales no equivalen a responsabilidad penal o constitucional acreditada.",
+      "Observaciones de Sernageomin fueron descritas por la autoridad como subsanables y sin riesgo que exigiera nueva paralización.",
+      "Anuncios de obras MOP no equivalen a obras iniciadas; separar enrolamiento, convenio, licitación y ejecución."
+    ],
+    "right_of_reply": [
+      "Caso Rabat: mantener versión del ministro, Gobierno, oposición, víctimas y antecedentes judiciales/documentales."
+    ]
+  },
+  "agenda": {
+    "now": [
+      "Cerrar resultados oficiales de Presupuesto 2027 de la jornada",
+      "Verificar si hubo nuevos antecedentes después de las 19:21 sobre Rabat, RN o Los Ríos"
+    ],
+    "24h": [
+      "Actualizar partidas MOP, Vivienda, Educación y SUBDERE tras la Mixta",
+      "Revisar ingreso/avance formal de AC contra Rabat",
+      "Seguir investigación de Mehuín y Angachilla"
+    ],
+    "72h": [
+      "Cierre FUAS el 5 de noviembre",
+      "Preparar cruces presupuesto-compromisos Los Ríos",
+      "Monitorear evolución de peajes Lanco-La Unión y respuesta MOP"
+    ],
+    "7d": [
+      "Plazo de indicaciones del boletín 15.610-03 el 6 de noviembre a las 12:00",
+      "Seguimiento de proyectos de respuesta al caso Rabat",
+      "Consolidar cartera MOP/SSR y compromisos territoriales"
+    ]
+  },
+  "decision_dossiers": [
+    {
+      "title": "Presupuesto 2027 — MOP/Vivienda/Los Ríos",
+      "horizon": "24h",
+      "status": "ABIERTO",
+      "next_action": "Consolidar actas y efectos concretos para la senadora."
+    },
+    {
+      "title": "Caso Rabat — solución legal versus política",
+      "horizon": "72h",
+      "status": "ABIERTO",
+      "next_action": "Separar decretos, facultades, estándares de responsabilidad y alternativas legislativas."
+    }
+  ],
+  "cases": [
+    {
+      "name": "Presupuesto 2027",
+      "priority": "CRÍTICO",
+      "status": "EN CURSO",
+      "next_action": "Obtener resultados oficiales y cruzar con prioridades regionales."
+    },
+    {
+      "name": "Caso Rabat",
+      "priority": "CRÍTICO",
+      "status": "EN CURSO",
+      "next_action": "Seguir decretos, investigación, AC y propuestas legislativas."
+    },
+    {
+      "name": "MOP / Obras Los Ríos",
+      "priority": "ALTO",
+      "status": "EN CURSO",
+      "next_action": "Cruzar presupuesto con cartera y compromisos."
+    },
+    {
+      "name": "Peajes Lanco-La Unión",
+      "priority": "ALTO",
+      "status": "EN CURSO",
+      "next_action": "Solicitar/obtener cronograma oficial MOP-Concesiones y condiciones para residentes."
+    },
+    {
+      "name": "Seguridad Los Ríos",
+      "priority": "ALTO",
+      "status": "EN CURSO",
+      "next_action": "Seguir Mehuín y Angachilla; detectar brechas institucionales."
+    },
+    {
+      "name": "Educación/FUAS/SLEP",
+      "priority": "MEDIO",
+      "status": "SEGUIMIENTO",
+      "next_action": "Comunicar plazo FUAS y seguir conservación de establecimientos."
+    },
+    {
+      "name": "Mocho Choshuenco / Futrono",
+      "priority": "MEDIO",
+      "status": "SEGUIMIENTO",
+      "next_action": "Verificar convenio GORE-MOP y licitación de primera etapa."
+    },
+    {
+      "name": "Prevención incendios y calor",
+      "priority": "MEDIO",
+      "status": "SEGUIMIENTO",
+      "next_action": "Cruzar plan regional con recursos y comunas de mayor riesgo."
+    },
+    {
+      "name": "RN / estabilidad oficialista",
+      "priority": "ALTO",
+      "status": "SEGUIMIENTO",
+      "next_action": "Monitorear posición institucional y efectos de la crisis Rabat."
+    }
+  ],
+  "commitments": [],
+  "management_actions": [
+    {
+      "priority": "1",
+      "action": "Presupuesto 2027: conseguir acta/resultados de cierre y preparar minuta de impactos en Los Ríos."
+    },
+    {
+      "priority": "2",
+      "action": "Rabat: mantener expediente jurídico separado de la disputa política y actualizar posibles soluciones legislativas."
+    },
+    {
+      "priority": "3",
+      "action": "Peajes: obtener antecedente oficial de Concesiones/MOP sobre cronograma, tarifas y gratuidad intracomunal."
+    },
+    {
+      "priority": "4",
+      "action": "Seguridad regional: seguir Fiscalía y autoridades sobre Mehuín y Angachilla sin sobrerreaccionar antes de contar con nuevos antecedentes."
+    }
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "name": "Senado — Citaciones por fecha",
+      "url": "https://tramitacion.senado.cl/appsenado/index.php?ac=citacionesComision&mo=comisiones&tipo_consulta=1",
+      "type": "primaria"
+    },
+    {
+      "id": "s2",
+      "name": "La Tercera — discusión Presupuesto y Gatica",
+      "url": "https://copesa-la-tercera-staging.web.arc-cdn.net/politica/noticia/fuego-amigo-votacion-del-presupuesto-desata-criticas-oficialistas-al-ministerio-de-hacienda/",
+      "type": "medio"
+    },
+    {
+      "id": "s3",
+      "name": "T13 — Rabat y respaldo presidencial",
+      "url": "https://www.t13.cl/amp/noticia/politica/ministro-rabat-asegura-siente-respaldo-del-sector-del-presidente-ante-criticas-2-11-2026",
+      "type": "medio"
+    },
+    {
+      "id": "s4",
+      "name": "Cooperativa — Rabat y oposición",
+      "url": "https://www.cooperativa.cl/noticias/site/artic/20261102/pags-amp/20261102104644.html",
+      "type": "medio"
+    },
+    {
+      "id": "s5",
+      "name": "La Tercera — RN y crisis Rabat",
+      "url": "https://copesa-la-tercera-staging.web.arc-cdn.net/politica/noticia/rn-y-la-crisis-rabat-dirigentes-acuerdan-evitar-convertirse-en-el-partido-republicano-del-gobierno-de-pinera/",
+      "type": "medio"
+    },
+    {
+      "id": "s6",
+      "name": "Cooperativa — voces oficialistas sobre continuidad de Rabat",
+      "url": "https://instagram.cooperativa.cl/noticias/pais/politica/claudio-arqueros-no-tiene-sentido-que-el-ministro-rabat-continue/2026-11-02/111003.html",
+      "type": "medio"
+    },
+    {
+      "id": "s7",
+      "name": "Río en Línea — riña en Mehuín",
+      "url": "https://www.rioenlinea.cl/tres-lesionados-dejo-pelea-en-cabalgata-no-autorizada-en-mehuin/",
+      "type": "regional"
+    },
+    {
+      "id": "s8",
+      "name": "Diario de Valdivia — ataque en Angachilla",
+      "url": "https://www.diariodevaldivia.cl/noticia/actualidad/2026/11/fiscalia-investiga-ataque-armado-contra-automovilista-en-angachilla",
+      "type": "regional"
+    },
+    {
+      "id": "s9",
+      "name": "Cooperativa — Imacec septiembre",
+      "url": "https://instagram.cooperativa.cl/noticias/economia/crecimiento/imacec-economia-crecio-0-2-en-septiembre-lastrada-por-la-mineria/2026-11-02/083616.html",
+      "type": "medio"
+    },
+    {
+      "id": "s10",
+      "name": "BioBioChile — peajes Lanco y La Unión",
+      "url": "https://www.biobiochile.cl/noticias/nacional/region-de-los-rios/2026/11/02/alcalde-de-lanco-valora-futuro-retiro-de-peaje-troncal-y-reemplazo-por-cobro-electronico.shtml",
+      "type": "regional"
+    },
+    {
+      "id": "s11",
+      "name": "Diario de Valdivia — L'Étape Chile",
+      "url": "https://www.diariodevaldivia.cl/noticia/deportes/2026/11/epica-y-pedal-valdivia-brilla-como-la-capital-inaugural-de-letape-chile",
+      "type": "regional"
+    },
+    {
+      "id": "s12",
+      "name": "Tu Voz — conservación de colegios Valdivia",
+      "url": "https://tuvoz.cl/valdivia-adjudica-obras-por-mas-de-2-000-millones-para-dos-colegios",
+      "type": "regional"
+    },
+    {
+      "id": "s13",
+      "name": "Río en Línea — acceso Mocho Choshuenco",
+      "url": "https://www.rioenlinea.cl/en-2027-inicia-habilitacion-de-camino-que-permitira-a-futrono-tener-acceso-directo-a-mocho-choshuenco/",
+      "type": "regional"
+    },
+    {
+      "id": "s14",
+      "name": "SoyValdivia — FUAS 2027",
+      "url": "https://www.soychile.cl/Valdivia/Sociedad/2026/10/28/970556/plazo-fuas-beneficios.html",
+      "type": "regional"
+    },
+    {
+      "id": "s15",
+      "name": "Central Noticias — plan incendios Los Ríos",
+      "url": "https://centralnoticias.cl/",
+      "type": "regional"
+    },
+    {
+      "id": "s16",
+      "name": "Canal 9/BioBio — alerta SENAPRED por calor",
+      "url": "https://www.canal9.cl/episodios/2026/11/02/senapred-declara-alerta-temprana-preventiva-por-calor-en-todo-chile-hasta-marzo-de-2027",
+      "type": "medio"
+    },
+    {
+      "id": "s17",
+      "name": "Cooperativa — AC contra Rabat",
+      "url": "https://www.cooperativa.cl/noticias/pais/politica/diputado-leiva-la-acusacion-constitucional-no-es-contra-el-gobierno/2026-11-02/091921.html",
+      "type": "medio"
+    },
+    {
+      "id": "s18",
+      "name": "BioBioChile — AC contra ministros Suprema",
+      "url": "https://www.biobiochile.cl/noticias/nacional/chile/2026/11/02/libertarios-avanzan-en-estudio-de-ac-contra-ministros-de-la-suprema-y-suma-respaldo-republicano.shtml",
+      "type": "medio"
+    },
+    {
+      "id": "s19",
+      "name": "Cooperativa — Sernageomin El Teniente",
+      "url": "https://www.cooperativa.cl/noticias/pais/empresas-del-estado/codelco/el-teniente-sernageomin-detecto-unas-120-observaciones-en-fiscalizacion/2026-11-02/081617.html",
+      "type": "medio"
+    },
+    {
+      "id": "s20",
+      "name": "Senado — plazos de indicaciones",
+      "url": "https://tramitacion.senado.cl/appsenado/index.php?ac=plazosIndicaciones&mo=sesionessala",
+      "type": "primaria"
+    },
+    {
+      "id": "s21",
+      "name": "CNN Chile — variaciones Presupuesto 2027",
+      "url": "https://www.cnnchile.com/negocios/presupuesto-2027-seguridad-sube-y-culturas-cae-los-ministerios-con-mayores-alzas-y-recortes/",
+      "type": "medio"
+    }
+  ],
+  "coverage_control": {
+    "los_rios": "12/12",
+    "senate": "AMPLIA_CON_LIMITACIONES",
+    "chamber": "PARCIAL",
+    "gatica": "3/3 variantes + prensa nacional",
+    "rn": "directiva + voces + controversia",
+    "social_media_checked": [],
+    "primary_sources_checked": [
+      "Senado citaciones",
+      "Senado plazos de indicaciones"
+    ],
+    "critical_sources_inaccessible": [
+      "Algunos portales dinámicos del Congreso no entregaron actualización de resultados en tiempo útil."
+    ],
+    "coverage_debt": [
+      "Cerrar acta oficial de Presupuesto 2027 de la tarde",
+      "Profundizar Cámara y Diario Oficial en próximo ciclo",
+      "Verificar fuente primaria completa de plan regional de incendios"
+    ],
+    "corrections_omissions": [
+      "El consolidado incorpora temas que el RADAR horario de las 19:00 había detectado pero que no fueron visibles para el usuario por problema de entrega."
+    ],
+    "main_limitation": "Consolidado amplio hasta las 19:21, pero no equivale a cierre definitivo del día; la Comisión Mixta estaba citada hasta las 20:00."
+  },
+  "system": {
+    "pre_radar": {
+      "scheduled": ":50",
+      "state": "ACTIVE",
+      "last_run": "2026-11-02T18:53-03:00"
+    },
+    "pre_watchdog": {
+      "scheduled": ":55",
+      "state": "ACTIVE",
+      "last_run": "2026-11-02T18:52-03:00"
+    },
+    "radar": {
+      "scheduled": ":00",
+      "state": "ACTIVE",
+      "last_run": "2026-11-02T19:02:43-03:00"
+    },
+    "radar_watchdog": {
+      "scheduled": ":08",
+      "state": "ACTIVE",
+      "last_run": "2026-11-02T19:05:39-03:00"
+    },
+    "site": {
+      "state": "ACTIVE",
+      "url": "https://prensagatica-oss.github.io/radar-gabinete/"
+    }
+  },
+  "full_report": {
+    "title": "RADAR — CONSOLIDADO DEL DÍA · 2 NOVIEMBRE 2026",
+    "body": "Consolidado extraordinario elaborado a solicitud del jefe de gabinete a las 19:21. Prioridades: Presupuesto 2027 y efectos en Los Ríos; crisis Rabat y posición de RN; seguridad regional; economía; peajes y conectividad; educación/FUAS; prevención estival. El informe completo está estructurado en los campos del JSON y se actualizará nuevamente en el ciclo de las 20:00."
+  }
+}

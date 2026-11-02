@@ -140,6 +140,24 @@ a{text-decoration:none;color:inherit}
 .source-row a{color:var(--rn-blue);font-weight:700;word-break:break-all}
 .history-btn{cursor:pointer}
 @media(max-width:800px){.source-row{grid-template-columns:1fr}.searchbar input{min-width:100%}}
+
+.brief-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.brief-card{border:1px solid var(--line);border-top:4px solid var(--rn-blue);border-radius:18px;padding:15px;background:#fff;box-shadow:var(--shadow)}
+.brief-card h4{margin:0 0 8px;font-size:15px}
+.brief-card p{margin:6px 0;font-size:13px;line-height:1.45;color:var(--muted)}
+.filterbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.filter-btn{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 11px;font-size:12px;font-weight:700;cursor:pointer}
+.filter-btn.active{background:var(--rn-blue);color:#fff;border-color:var(--rn-blue)}
+.ops-grid,.invest-grid,.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.timeline{border-left:2px solid var(--line);padding-left:14px;margin-top:12px}
+.timeline-entry{position:relative;padding:0 0 12px 2px;font-size:13px}
+.timeline-entry:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--rn-blue);left:-20px;top:4px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compare-col{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}
+.coverage-matrix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.coverage-box{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fbfcff}
+@media(max-width:1100px){.brief-grid{grid-template-columns:repeat(2,1fr)}.coverage-matrix{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.brief-grid,.ops-grid,.invest-grid,.case-grid,.compare-grid,.coverage-matrix{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -201,6 +219,9 @@ a{text-decoration:none;color:inherit}
         <button class="tab" data-tab="sistema">Sistema</button>
         <button class="tab" data-tab="historial">Historial</button>
 <button class="tab" data-tab="fuentes">Fuentes</button>
+<button class="tab" data-tab="gestion">Gestión</button>
+<button class="tab" data-tab="investigacion">Investigación</button>
+<button class="tab" data-tab="comparacion">Comparación</button>
       </div>
       <div>
         <button class="btn" id="refreshBtn">Actualizar ahora</button>
@@ -209,6 +230,11 @@ a{text-decoration:none;color:inherit}
     </div>
 
     <section class="panel active" id="panel-resumen">
+      <div class="card section" style="margin-bottom:16px">
+        <h3>Lo que debe saber la senadora</h3>
+        <div class="section-sub">Máximo cinco asuntos que justifican atención inmediata</div>
+        <div id="senatorBrief" class="brief-grid"></div>
+      </div>
       <div class="grid-2">
         <div class="card section">
           <h3>Alertas críticas</h3>
@@ -230,6 +256,15 @@ a{text-decoration:none;color:inherit}
 
     <section class="panel" id="panel-radar">
       <div class="card section">
+        <div id="radarFilters" class="filterbar">
+          <button class="filter-btn active" data-filter="all">Todo</button>
+          <button class="filter-btn" data-filter="CRÍTICO">Crítico</button>
+          <button class="filter-btn" data-filter="ALTO">Alto</button>
+          <button class="filter-btn" data-filter="NUEVO">Nuevo</button>
+          <button class="filter-btn" data-filter="ACTUALIZACIÓN">Actualización</button>
+          <button class="filter-btn" data-filter="VERIFICADO">Verificado</button>
+          <button class="filter-btn" data-filter="REPORTADO">Reportado</button>
+        </div>
         <h3>RADAR completo</h3>
         <div class="section-sub">Aquí debería cargarse el informe horario completo y estructurado del ciclo actual</div>
         <div class="kv" id="radarBlocks"></div>
@@ -276,7 +311,7 @@ a{text-decoration:none;color:inherit}
       <div class="card section">
         <h3>Registro Maestro de Expedientes</h3>
         <div class="section-sub">Estado actual, prioridad y próximo paso</div>
-        <div class="list" id="cases"></div>
+        <div class="case-grid" id="cases"></div>
       </div>
     </section>
 
@@ -300,6 +335,28 @@ a{text-decoration:none;color:inherit}
     </section>
 
     
+
+<section class="panel" id="panel-gestion">
+  <div class="card section">
+    <h3>Gestión del gabinete</h3>
+    <div class="section-sub">Acciones recomendadas y realizadas, con estado y destinatario</div>
+    <div id="managementBoard" class="ops-grid"></div>
+  </div>
+</section>
+<section class="panel" id="panel-investigacion">
+  <div class="card section">
+    <h3>Modo investigación</h3>
+    <div class="section-sub">Hipótesis, hechos verificados, contraevidencia y próxima diligencia</div>
+    <div id="investigationBoard" class="invest-grid"></div>
+  </div>
+</section>
+<section class="panel" id="panel-comparacion">
+  <div class="card section">
+    <h3>Comparación entre ciclos</h3>
+    <div class="section-sub">Cambios sustantivos respecto del ciclo anterior disponible</div>
+    <div id="comparisonBoard"></div>
+  </div>
+</section>
 <section class="panel" id="panel-fuentes">
   <div class="card section">
     <h3>Fuentes del ciclo</h3>
@@ -619,16 +676,6 @@ function render(data){
     communes.appendChild(el);
   });
 
-  const cases = document.getElementById('cases');
-  cases.innerHTML = "";
-  data.sections.expedientes.forEach(c=>{
-    const el = document.createElement('div');
-    el.className = 'item';
-    const stateCls = c.status === "CRÍTICO" ? "state critical" : (c.status === "ALTO" ? "state warn" : "state ok");
-    el.innerHTML = `<div><div class="title">${esc(c.name)}</div><div class="meta">Próximo paso: ${esc(c.next)}</div></div><div class="${stateCls}">${esc(c.status)}</div>`;
-    cases.appendChild(el);
-  });
-
   const systemList = document.getElementById('systemList');
   systemList.innerHTML = "";
   data.sections.sistema.forEach(s=>{
@@ -642,6 +689,84 @@ function render(data){
 
 
 let currentCanonicalData=null;
+
+
+function renderSenatorBrief(data){
+  const c=document.getElementById('senatorBrief'); if(!c) return;
+  const rows=Array.isArray(data?.executive_summary?.senator_brief)?data.executive_summary.senator_brief:[];
+  const fallbackRows=(data?.executive_summary?.top_priorities||[]).slice(0,5).map(x=>typeof x==='string'?{title:x,one_line:x}:x);
+  const use=rows.length?rows:fallbackRows;
+  c.innerHTML=use.length?use.map(x=>'<div class="brief-card"><h4>'+esc(x.title||x.one_line||'Prioridad')+'</h4><p>'+esc(x.one_line||x.summary||'')+'</p>'+(x.why_now?'<p><strong>Por qué ahora:</strong> '+esc(x.why_now)+'</p>':'')+(x.recommended_action?'<p><strong>Acción:</strong> '+esc(x.recommended_action)+'</p>':'')+'</div>').join(''):'<div class="small">Sin asuntos de atención prioritaria cargados.</div>';
+}
+
+function renderManagement(data){
+  const c=document.getElementById('managementBoard'); if(!c) return;
+  const rows=Array.isArray(data?.management_actions)?data.management_actions:[];
+  c.innerHTML=rows.length?rows.map(x=>'<div class="detail-card"><h5>'+esc(x.title||x.action||'Gestión')+'</h5><div class="detail-meta">'+(x.priority?'<span class="badge">'+esc(x.priority)+'</span>':'')+(x.action_type?'<span class="badge">'+esc(x.action_type)+'</span>':'')+(x.status?'<span class="badge">'+esc(x.status)+'</span>':'')+'</div>'+(x.detail?'<div class="detail-row"><strong>Detalle:</strong> '+esc(x.detail)+'</div>':'')+(x.target?'<div class="detail-row"><strong>Destinatario:</strong> '+esc(x.target)+'</div>':'')+(x.due_date?'<div class="detail-row"><strong>Plazo:</strong> '+esc(x.due_date)+'</div>':'')+(x.rationale?'<div class="detail-row"><strong>Fundamento:</strong> '+esc(x.rationale)+'</div>':'')+'</div>').join(''):'<div class="small">Sin gestiones cargadas.</div>';
+}
+
+function renderInvestigations(data){
+  const c=document.getElementById('investigationBoard'); if(!c) return;
+  let rows=Array.isArray(data?.investigation?.cards)?data.investigation.cards:[];
+  if(!rows.length){
+    const inv=data?.investigation||{};
+    const findings=inv?.proactive_documentary_rotation?.findings||[];
+    rows=findings.map((x,i)=>({title:'Investigación '+(i+1),hypothesis:x,evidence_state:inv?.proactive_documentary_rotation?.status||'EN_CURSO'}));
+  }
+  c.innerHTML=rows.length?rows.map(x=>'<div class="detail-card"><h5>'+esc(x.title||'Investigación')+'</h5><div class="detail-meta">'+(x.editorial_state?'<span class="badge">'+esc(x.editorial_state)+'</span>':'')+(x.evidence_state?'<span class="badge">'+esc(x.evidence_state)+'</span>':'')+'</div>'+(x.hypothesis?'<div class="detail-row"><strong>Hipótesis:</strong> '+esc(x.hypothesis)+'</div>':'')+(Array.isArray(x.verified_facts)&&x.verified_facts.length?'<div class="detail-row"><strong>Hechos verificados:</strong> '+esc(x.verified_facts.join(' · '))+'</div>':'')+(Array.isArray(x.counterevidence)&&x.counterevidence.length?'<div class="detail-row"><strong>Contraevidencia:</strong> '+esc(x.counterevidence.join(' · '))+'</div>':'')+(Array.isArray(x.alternative_explanations)&&x.alternative_explanations.length?'<div class="detail-row"><strong>Explicaciones alternativas:</strong> '+esc(x.alternative_explanations.join(' · '))+'</div>':'')+(Array.isArray(x.unanswered_questions)&&x.unanswered_questions.length?'<div class="detail-row"><strong>Preguntas pendientes:</strong> '+esc(x.unanswered_questions.join(' · '))+'</div>':'')+(x.next_diligence?'<div class="detail-row"><strong>Próxima diligencia:</strong> '+esc(x.next_diligence)+'</div>':'')+'</div>').join(''):'<div class="small">Sin fichas de investigación cargadas.</div>';
+}
+
+function renderCaseRegistry(data){
+  const c=document.getElementById('cases'); if(!c) return;
+  const rows=Array.isArray(data?.cases)?data.cases:[];
+  c.innerHTML=rows.length?rows.map(x=>{
+    const tl=Array.isArray(x.timeline)?x.timeline:[];
+    return '<div class="detail-card"><h5>'+esc(x.name||x.title||'Expediente')+'</h5><div class="detail-meta">'+(x.priority?'<span class="badge">'+esc(x.priority)+'</span>':'')+(x.status?'<span class="badge">'+esc(x.status)+'</span>':'')+'</div>'+(x.current_state?'<div class="detail-row"><strong>Estado actual:</strong> '+esc(x.current_state)+'</div>':'')+(x.why_it_matters?'<div class="detail-row"><strong>Por qué importa:</strong> '+esc(x.why_it_matters)+'</div>':'')+(x.next_action?'<div class="detail-row"><strong>Próxima acción:</strong> '+esc(x.next_action)+'</div>':'')+(x.deadline?'<div class="detail-row"><strong>Plazo:</strong> '+esc(x.deadline)+'</div>':'')+(tl.length?'<div class="timeline">'+tl.map(t=>'<div class="timeline-entry"><strong>'+esc(t.date||'')+' · '+esc(t.title||'Hito')+'</strong><div class="small">'+esc(t.detail||'')+'</div></div>').join('')+'</div>':'')+'</div>';
+  }).join(''):'<div class="small">Sin expedientes cargados.</div>';
+}
+
+async function renderComparison(data){
+  const c=document.getElementById('comparisonBoard'); if(!c) return;
+  const delta=Array.isArray(data?.executive_summary?.delta_from_previous)?data.executive_summary.delta_from_previous:[];
+  if(delta.length){
+    c.innerHTML='<div class="detail-grid">'+delta.map(x=>'<div class="detail-card"><h5>'+esc(x.title||x.type||'Cambio')+'</h5><div class="detail-meta">'+(x.type?'<span class="badge">'+esc(x.type)+'</span>':'')+'</div><div class="detail-row">'+esc(x.detail||'')+'</div></div>').join('')+'</div>';
+    return;
+  }
+  try{
+    const r=await fetch('data/history/index.json?ts='+Date.now(),{cache:'no-store'});
+    const idx=await r.json();
+    const prev=(idx||[]).find(x=>x.cycle_id!==data?.meta?.cycle_id);
+    if(!prev){c.innerHTML='<div class="small">Aún no hay un ciclo anterior distinto para comparar.</div>';return;}
+    const rr=await fetch(prev.file+'?ts='+Date.now(),{cache:'no-store'}); const pd=await rr.json();
+    const nowTitles=[...(data?.alerts||[]),...(data?.los_rios?.items||[]),...(data?.national?.items||[])].map(x=>(x.title||x.name||'').toLowerCase()).filter(Boolean);
+    const prevTitles=[...(pd?.alerts||[]),...(pd?.los_rios?.items||[]),...(pd?.national?.items||[])].map(x=>(x.title||x.name||'').toLowerCase()).filter(Boolean);
+    const added=nowTitles.filter(x=>!prevTitles.includes(x));
+    const removed=prevTitles.filter(x=>!nowTitles.includes(x));
+    c.innerHTML='<div class="compare-grid"><div class="compare-col"><h4>Nuevos / incorporados</h4>'+(added.length?added.map(x=>'<div class="item"><div class="title">'+esc(x)+'</div></div>').join(''):'<div class="small">Sin diferencias detectadas por título.</div>')+'</div><div class="compare-col"><h4>Ya no presentes</h4>'+(removed.length?removed.map(x=>'<div class="item"><div class="title">'+esc(x)+'</div></div>').join(''):'<div class="small">Sin diferencias detectadas por título.</div>')+'</div></div>';
+  }catch(e){c.innerHTML='<div class="small">No se pudo cargar el ciclo anterior.</div>';}
+}
+
+function renderCoverageMatrix(data){
+  const host=document.getElementById('coverage'); if(!host) return;
+  const matrix=Array.isArray(data?.coverage_control?.matrix)?data.coverage_control.matrix:[];
+  if(!matrix.length) return;
+  host.className='coverage-matrix';
+  host.innerHTML=matrix.map(x=>'<div class="coverage-box"><div class="k">'+esc(x.front||'Frente')+'</div><div class="v">'+esc(x.status||'')+'</div>'+(Array.isArray(x.checked)&&x.checked.length?'<div class="small">Revisado: '+esc(x.checked.join(', '))+'</div>':'')+(Array.isArray(x.debt)&&x.debt.length?'<div class="small">Pendiente: '+esc(x.debt.join(', '))+'</div>':'')+'</div>').join('');
+}
+
+function setupRadarFilters(){
+  const bar=document.getElementById('radarFilters'); if(!bar||bar.dataset.bound) return;
+  bar.dataset.bound='1';
+  bar.addEventListener('click',e=>{
+    const b=e.target.closest('.filter-btn'); if(!b) return;
+    [...bar.querySelectorAll('.filter-btn')].forEach(x=>x.classList.remove('active')); b.classList.add('active');
+    const f=b.dataset.filter.toLowerCase();
+    document.querySelectorAll('#radarBlocks .detail-card').forEach(card=>{
+      const ok=f==='all'||card.innerText.toLowerCase().includes(f);
+      card.style.display=ok?'':'none';
+    });
+  });
+}
 
 function renderSources(data){
   const c=document.getElementById('sourcesList'); if(!c) return;
@@ -686,6 +811,12 @@ async function loadHistoryFile(file){
     render(normalizeRadarData(d));
     renderCanonicalFull(d);
     renderSources(d);
+    renderSenatorBrief(d);
+    renderManagement(d);
+    renderInvestigations(d);
+    renderCaseRegistry(d);
+    renderComparison(d);
+    renderCoverageMatrix(d);
     updateStaleness(d);
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
     document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
@@ -728,8 +859,15 @@ async function loadData(){
     render(normalizeRadarData(data));
     renderCanonicalFull(data);
     renderSources(data);
+    renderSenatorBrief(data);
+    renderManagement(data);
+    renderInvestigations(data);
+    renderCaseRegistry(data);
+    renderComparison(data);
+    renderCoverageMatrix(data);
     updateStaleness(data);
     setupSearch();
+    setupRadarFilters();
     loadHistory();
   }catch(err){
     render(fallback);

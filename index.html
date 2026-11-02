@@ -112,6 +112,21 @@ a{text-decoration:none;color:inherit}
   .kv{grid-template-columns:1fr}
   .coverage{grid-template-columns:1fr}
 }
+
+.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.detail-card{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}
+.detail-card h5{margin:0 0 8px;font-size:16px;line-height:1.35}
+.detail-card .detail-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.detail-card .detail-row{margin-top:10px;font-size:13px;line-height:1.5}
+.detail-card .detail-row strong{color:var(--ink)}
+.detail-card .source-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.detail-card .source-link{font-size:12px;padding:7px 9px;border:1px solid var(--line);border-radius:999px;background:#f8faff;color:var(--rn-blue)}
+.section-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;margin-bottom:12px}
+.section-head .count{font-size:12px;color:var(--muted)}
+.report-section{margin-top:18px}
+.report-section:first-child{margin-top:0}
+.report-section>h4{margin:0 0 10px;font-size:18px}
+@media (max-width:900px){.detail-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -398,55 +413,99 @@ function renderCanonicalFull(data){
   const radar = document.getElementById('radarBlocks');
   if(!radar) return;
   const arr=x=>Array.isArray(x)?x:[];
-  const sec=(title, items)=>{
-    const box=document.createElement('div');
-    box.className='box';
-    const body=arr(items).map(i=>{
-      if(typeof i==='string') return '<div class="meta" style="margin-top:8px">'+esc(i)+'</div>';
-      const t=i?.title||i?.name||i?.headline||i?.event||'Registro';
-      const s=i?.summary||i?.description||i?.detail||i?.why_it_matters||i?.status||i?.state||'';
-      return '<div style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>'+esc(t)+'</strong>'+(s?'<div class="meta">'+esc(s)+'</div>':'')+'</div>';
-    }).join('');
-    box.innerHTML='<h4>'+esc(title)+'</h4>'+ (body||'<p>Sin registros cargados.</p>');
-    radar.appendChild(box);
+  const sources=new Map(arr(data?.sources).map(s=>[s.id,s]));
+
+  const badge=(txt,cls='')=>'<span class="badge '+cls+'">'+esc(txt||'')+'</span>';
+  const srcs=(ids)=>{
+    const rows=arr(ids).map(id=>sources.get(id)).filter(Boolean);
+    if(!rows.length) return '';
+    return '<div class="source-list">'+rows.map(s=>'<a class="source-link" href="'+esc(s.url||'#')+'" target="_blank" rel="noopener">'+esc(s.name||s.id)+'</a>').join('')+'</div>';
   };
+
+  const itemCard=(i)=>{
+    if(typeof i==='string') return '<div class="detail-card"><h5>'+esc(i)+'</h5></div>';
+    const title=i?.title||i?.name||i?.headline||i?.event||'Registro RADAR';
+    const state=i?.state||i?.status||i?.priority||i?.level||'';
+    const date=i?.date||i?.time||i?.generated_at||'';
+    const summary=i?.summary||i?.description||i?.detail||'';
+    const why=i?.why_it_matters||i?.why||i?.importance||'';
+    const action=i?.action||i?.recommended_action||i?.next_action||i?.next||'';
+    const pending=i?.pending_questions||i?.what_is_missing||i?.pending||'';
+    let html='<div class="detail-card"><h5>'+esc(title)+'</h5><div class="detail-meta">';
+    if(state) html+=badge(state);
+    if(date) html+=badge(date);
+    html+='</div>';
+    if(summary) html+='<div class="detail-row"><strong>Qué pasó:</strong> '+esc(summary)+'</div>';
+    if(why) html+='<div class="detail-row"><strong>Por qué importa:</strong> '+esc(why)+'</div>';
+    if(action) html+='<div class="detail-row"><strong>Próxima acción:</strong> '+esc(action)+'</div>';
+    if(pending) html+='<div class="detail-row"><strong>Pendiente:</strong> '+esc(Array.isArray(pending)?pending.join(' · '):pending)+'</div>';
+    html+=srcs(i?.source_ids);
+    html+='</div>';
+    return html;
+  };
+
+  const sec=(title, items, subtitle='')=>{
+    const rows=arr(items);
+    const wrap=document.createElement('div');
+    wrap.className='report-section';
+    wrap.innerHTML='<div class="section-head"><div><h4>'+esc(title)+'</h4>'+(subtitle?'<div class="small">'+esc(subtitle)+'</div>':'')+'</div><div class="count">'+rows.length+' registro(s)</div></div>'
+      +(rows.length?'<div class="detail-grid">'+rows.map(itemCard).join('')+'</div>':'<div class="small">Sin registros cargados.</div>');
+    radar.appendChild(wrap);
+  };
+
   radar.innerHTML='';
 
-  sec('Síntesis ejecutiva', [
-    {title:data?.executive_summary?.headline||'Resumen', summary:data?.executive_summary?.summary||''},
-    ...arr(data?.executive_summary?.what_changed).map(x=>({title:'Cambio del día',summary:typeof x==='string'?x:(x?.summary||x?.title||'')})),
-    ...arr(data?.executive_summary?.top_priorities).map(x=>({title:'Prioridad',summary:typeof x==='string'?x:(x?.summary||x?.title||'')}))
-  ]);
+  const ex=data?.executive_summary||{};
+  const summaryItems=[];
+  if(ex?.headline||ex?.summary) summaryItems.push({title:ex.headline||'Síntesis ejecutiva',summary:ex.summary||''});
+  arr(ex?.what_changed).forEach(x=>summaryItems.push({title:'Qué cambió hoy',summary:typeof x==='string'?x:(x?.summary||x?.title||'')}));
+  arr(ex?.top_priorities).forEach(x=>summaryItems.push({title:'Prioridad del gabinete',summary:typeof x==='string'?x:(x?.summary||x?.title||'')}));
+  sec('Síntesis ejecutiva',summaryItems,'Lectura rápida del ciclo consolidado.');
 
-  sec('Alertas', data?.alerts);
-  sec('Los Ríos', data?.los_rios?.items);
-  sec('Nacional', data?.national?.items);
-  sec('Legislativo · Senado', data?.legislative?.senate?.items);
-  sec('Legislativo · Cámara', data?.legislative?.chamber?.items);
-  sec('Presupuesto 2027', data?.legislative?.budget_2027?.items);
-  sec('Senadora María José Gatica', data?.gatica?.items);
-  sec('Renovación Nacional', data?.rn?.items);
+  sec('Alertas',data?.alerts,'Alertas críticas y de alta prioridad.');
+  sec('Los Ríos',data?.los_rios?.items,'Cobertura territorial y sectorial de la Región de Los Ríos.');
+  sec('Nacional relevante para la senadora',data?.national?.items,'Hechos nacionales con pertinencia parlamentaria o política.');
+  sec('Senado',data?.legislative?.senate?.items,'Cuenta, tabla, comisiones, plazos, votaciones y movimientos de tramitación.');
+  sec('Cámara de Diputadas y Diputados',data?.legislative?.chamber?.items,'Alertas tempranas y materias que pueden impactar al Senado.');
+  sec('Presupuesto 2027',data?.legislative?.budget_2027?.items,'Partidas, glosas, efectos regionales y asuntos pendientes.');
+  sec('Senadora María José Gatica',data?.gatica?.items,'Intervenciones, menciones, actividad y seguimiento público.');
+  sec('Renovación Nacional',data?.rn?.items,'Directiva, bancada, posiciones institucionales y dinámica interna.');
 
   const inv=[];
   const invObj=data?.investigation||{};
   Object.entries(invObj).forEach(([k,v])=>{
-    if(Array.isArray(v)) v.forEach(x=>inv.push(typeof x==='string'?{title:k.replaceAll('_',' '),summary:x}:{title:x?.title||k.replaceAll('_',' '),summary:x?.summary||x?.detail||''}));
+    if(Array.isArray(v)) v.forEach(x=>inv.push(typeof x==='string'?{title:k.replaceAll('_',' '),summary:x}:x));
+    else if(v && typeof v==='object' && Array.isArray(v.findings)) v.findings.forEach(x=>inv.push({title:k.replaceAll('_',' '),summary:x}));
   });
-  sec('Investigación y contraste', inv);
-  sec('Expedientes', data?.cases);
-  sec('Gestiones recomendadas', data?.management_actions);
+  sec('Investigación y contraste',inv,'Hallazgos documentales, contraevidencia y diligencias pendientes.');
+
+  sec('Expedientes',data?.cases,'Registro maestro de temas abiertos.');
+  sec('Gestiones recomendadas',data?.management_actions,'Acciones institucionales priorizadas para el gabinete.');
 
   const agenda=[];
   [['Ahora',data?.agenda?.now],['24h',data?.agenda?.['24h']],['72h',data?.agenda?.['72h']],['7 días',data?.agenda?.['7d']]].forEach(([h,items])=>{
     arr(items).forEach(x=>agenda.push({title:h,summary:typeof x==='string'?x:(x?.summary||x?.title||'')}));
   });
-  sec('Agenda', agenda);
+  sec('Agenda',agenda,'Próximos hitos y ventanas de decisión.');
+
+  if(data?.coverage_control){
+    const cc=data.coverage_control;
+    sec('Control de cobertura',[
+      {title:'Los Ríos',summary:cc.los_rios||''},
+      {title:'Senado',summary:cc.senate||''},
+      {title:'Cámara',summary:cc.chamber||''},
+      {title:'Gatica',summary:cc.gatica||''},
+      {title:'RN',summary:cc.rn||''},
+      {title:'Limitación principal',summary:cc.main_limitation||''},
+      {title:'Deuda de cobertura',summary:arr(cc.coverage_debt).join(' · ')}
+    ].filter(x=>x.summary),'Transparencia sobre qué se revisó y qué falta cerrar.');
+  }
 
   if(data?.full_report?.body){
-    const box=document.createElement('div');
-    box.className='box';
-    box.innerHTML='<h4>'+esc(data.full_report.title||'Informe completo')+'</h4><p style="white-space:pre-wrap">'+esc(data.full_report.body)+'</p>';
-    radar.appendChild(box);
+    const wrap=document.createElement('div');
+    wrap.className='report-section';
+    wrap.innerHTML='<h4>'+esc(data.full_report.title||'Informe completo')+'</h4><div class="detail-card"><div class="detail-row" style="white-space:pre-wrap">'+esc(data.full_report.body)+'</div></div>';
+    radar.appendChild(wrap);
   }
 }
 

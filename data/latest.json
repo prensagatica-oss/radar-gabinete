@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "cycle_id": "inicial",
+    "generated_at": null,
+    "window_start": null,
+    "window_end": null,
+    "next_update": null,
+    "status": "OPERATIVO",
+    "report_type": "RADAR_FINAL",
+    "pre_radar_used": false,
+    "watchdog_recovery": false,
+    "visibility": "Acceso por enlace",
+    "owner": "Gabinete Senadora María José Gatica",
+    "coverage_status": "PENDIENTE"
+  },
+  "executive_summary": {
+    "headline": "RADAR — Centro de Mando",
+    "summary": "La plataforma está publicada y preparada para recibir el próximo RADAR horario.",
+    "top_priorities": [],
+    "what_changed": []
+  },
+  "alerts": [],
+  "los_rios": {
+    "coverage": {
+      "consulted": 0,
+      "total": 12,
+      "communes": [
+        {
+          "name": "Valdivia",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Corral",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Lanco",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Los Lagos",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Máfil",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Mariquina",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Paillaco",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Panguipulli",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "La Unión",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Río Bueno",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Futrono",
+          "consulted": false,
+          "new_items": 0
+        },
+        {
+          "name": "Lago Ranco",
+          "consulted": false,
+          "new_items": 0
+        }
+      ]
+    },
+    "items": [],
+    "regional_media_checked": [],
+    "primary_sources_checked": []
+  },
+  "national": {
+    "items": []
+  },
+  "legislative": {
+    "senate": {
+      "delta_summary": {},
+      "checklist": {},
+      "items": [],
+      "next_milestones": []
+    },
+    "chamber": {
+      "delta_summary": {},
+      "checklist": {},
+      "items": [],
+      "next_milestones": []
+    },
+    "budget_2027": {
+      "bulletin": "18.702-05",
+      "state": "EN SEGUIMIENTO",
+      "latest_change": null,
+      "dipres": [],
+      "subdere": [],
+      "mop": [],
+      "regional_impact": [],
+      "pending_questions": []
+    },
+    "full_lifecycle_watch": {}
+  },
+  "gatica": {
+    "search_variants": {},
+    "items": [],
+    "interventions": [],
+    "votes": [],
+    "motions": [],
+    "coauthorships": [],
+    "official_letters": [],
+    "meetings_public_activity": [],
+    "public_commitments": []
+  },
+  "rn": {
+    "checklist": {},
+    "items": [],
+    "institutional_positions": [],
+    "individual_positions": [],
+    "internal_dynamics_reported": []
+  },
+  "investigation": {
+    "proactive_documentary_rotation": {
+      "area": null,
+      "status": "PENDIENTE",
+      "findings": []
+    },
+    "contraloria": [],
+    "mercado_publico": [],
+    "transparencia": [],
+    "dipres": [],
+    "judiciary_fiscalia": [],
+    "ine_servel_superintendencies": [],
+    "social_media_signals": [],
+    "counterevidence_checks": [],
+    "right_of_reply": []
+  },
+  "agenda": {
+    "now": [],
+    "24h": [],
+    "72h": [],
+    "7d": []
+  },
+  "decision_dossiers": [],
+  "cases": [],
+  "commitments": [],
+  "management_actions": [],
+  "sources": [],
+  "coverage_control": {
+    "los_rios": "0/12",
+    "senate": "PENDIENTE",
+    "chamber": "PENDIENTE",
+    "gatica": "PENDIENTE",
+    "rn": "PENDIENTE",
+    "social_media_checked": [],
+    "primary_sources_checked": [],
+    "critical_sources_inaccessible": [],
+    "coverage_debt": [],
+    "corrections_omissions": [],
+    "main_limitation": "Feed inicial; pendiente primer ciclo RADAR."
+  },
+  "system": {
+    "pre_radar": {
+      "scheduled": ":50",
+      "state": "ACTIVE",
+      "last_run": null
+    },
+    "pre_watchdog": {
+      "scheduled": ":55",
+      "state": "ACTIVE",
+      "last_run": null
+    },
+    "radar": {
+      "scheduled": ":00",
+      "state": "ACTIVE",
+      "last_run": null
+    },
+    "radar_watchdog": {
+      "scheduled": ":08",
+      "state": "ACTIVE",
+      "last_run": null
+    }
+  },
+  "full_report": {
+    "title": "RADAR — INFORME HORARIO",
+    "body": "Pendiente primer ciclo sincronizado."
+  }
+}

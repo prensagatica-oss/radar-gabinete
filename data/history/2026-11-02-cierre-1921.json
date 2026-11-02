@@ -11,7 +11,8 @@
     "watchdog_recovery": false,
     "visibility": "Acceso por enlace",
     "owner": "Gabinete Senadora María José Gatica",
-    "coverage_status": "AMPLIA_CON_LIMITACIONES"
+    "coverage_status": "AMPLIA_CON_LIMITACIONES",
+    "previous_cycle_id": null
   },
   "executive_summary": {
     "headline": "RADAR consolidado — lunes 2 de noviembre",
@@ -26,7 +27,59 @@
       "RN sostuvo una reunión de directiva centrada en la crisis Rabat y optó por no romper con el Gobierno, mientras dirigentes del partido mantienen cuestionamientos al ministro.",
       "El Imacec de septiembre creció solo 0,2% anual, con caída de la producción de bienes y minería.",
       "En Los Ríos se reportaron una riña con tres lesionados en Mehuín y un homicidio frustrado en Angachilla; además avanzó el debate sobre el futuro sistema de cobro en peajes de Lanco y La Unión."
-    ]
+    ],
+    "senator_brief": [
+      {
+        "title": "Presupuesto 2027",
+        "one_line": "La discusión de hoy tiene efectos directos en MOP, Vivienda y prioridades regionales; falta cerrar el resultado oficial de la jornada.",
+        "why_now": "La Comisión Especial Mixta estaba citada hasta las 20:00 y los resultados pueden cambiar gestiones inmediatas.",
+        "recommended_action": "Obtener acta/resultados y preparar minuta de impacto en Los Ríos.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "title": "Caso Rabat",
+        "one_line": "La crisis combina investigación, presión por acusación constitucional y debate sobre decretos y reparación a víctimas.",
+        "why_now": "Puede alterar agenda legislativa y relación política con el Ejecutivo.",
+        "recommended_action": "Mantener expediente jurídico separado de la disputa política y monitorear texto de AC y decretos.",
+        "source_ids": [
+          "s3",
+          "s4",
+          "s17"
+        ]
+      },
+      {
+        "title": "Peajes Lanco–La Unión",
+        "one_line": "Se proyecta migración a cobro mixto desde marzo de 2027 y electrónico proporcional desde 2029.",
+        "why_now": "Afecta movilidad y costos de residentes; aún faltan antecedentes contractuales oficiales.",
+        "recommended_action": "Pedir a MOP/Concesiones cronograma, tarifas y reglas de gratuidad intracomunal.",
+        "source_ids": [
+          "s10"
+        ]
+      },
+      {
+        "title": "Seguridad Los Ríos",
+        "one_line": "Mehuín y Angachilla concentran los hechos policiales más relevantes del día.",
+        "why_now": "Ambos casos están en investigación y podrían requerir seguimiento institucional si aparecen brechas de prevención o coordinación.",
+        "recommended_action": "Seguir Fiscalía/Carabineros y no sobrerreaccionar antes de nuevos antecedentes.",
+        "source_ids": [
+          "s7",
+          "s8"
+        ]
+      },
+      {
+        "title": "Economía",
+        "one_line": "El Imacec de septiembre creció solo 0,2% anual, con incidencia negativa de la minería.",
+        "why_now": "Es una señal relevante para la discusión presupuestaria y expectativas de actividad.",
+        "recommended_action": "Incorporar el dato a lectura de Presupuesto 2027 y seguimiento de empleo/inversión.",
+        "source_ids": [
+          "s9"
+        ]
+      }
+    ],
+    "delta_from_previous": []
   },
   "alerts": [
     {
@@ -608,6 +661,79 @@
     ],
     "right_of_reply": [
       "Caso Rabat: mantener versión del ministro, Gobierno, oposición, víctimas y antecedentes judiciales/documentales."
+    ],
+    "cards": [
+      {
+        "investigation_id": "inv-rabat",
+        "title": "Caso Rabat: dimensión jurídica y política",
+        "hypothesis": "Determinar si las controversias detectadas revelan un vacío o problema normativo susceptible de solución legislativa, o si el núcleo es principalmente político/administrativo.",
+        "editorial_state": "INVESTIGAR",
+        "evidence_state": "EN INVESTIGACIÓN",
+        "verified_facts": [
+          "Existe presión política por acusación constitucional y entrega de decretos.",
+          "El ministro afirmó contar con respaldo presidencial."
+        ],
+        "documents": [],
+        "counterevidence": [
+          "Una acusación constitucional o denuncia no acredita responsabilidad por sí misma."
+        ],
+        "alternative_explanations": [
+          "Parte del conflicto puede resolverse mediante decisiones administrativas, transparencia y control político sin reforma legal."
+        ],
+        "right_of_reply": [
+          "Ministerio de Justicia",
+          "Ejecutivo",
+          "Oposición",
+          "Víctimas y representantes"
+        ],
+        "unanswered_questions": [
+          "Qué contienen exactamente los decretos cuestionados",
+          "Qué defectos normativos, si alguno, se identifican",
+          "Qué medidas legislativas serían necesarias y proporcionales"
+        ],
+        "next_diligence": "Contrastar decretos, normas habilitantes, expediente de investigación y fundamentos del eventual libelo.",
+        "source_ids": [
+          "s3",
+          "s4",
+          "s17",
+          "s18"
+        ]
+      },
+      {
+        "investigation_id": "inv-presupuesto",
+        "title": "Presupuesto 2027 y efectos en Los Ríos",
+        "hypothesis": "Identificar cambios de partidas y glosas que alteren compromisos territoriales, especialmente MOP, Vivienda, SUBDERE, Educación y programas rurales.",
+        "editorial_state": "SEGUIR",
+        "evidence_state": "EN INVESTIGACIÓN",
+        "verified_facts": [
+          "La Comisión Especial Mixta sesionó durante el día.",
+          "Gatica intervino sobre obras menores y subsidios de vivienda."
+        ],
+        "documents": [
+          "Actas y resultados oficiales pendientes de consolidar"
+        ],
+        "counterevidence": [
+          "Las declaraciones de parlamentarios no sustituyen el texto aprobado."
+        ],
+        "alternative_explanations": [
+          "Variaciones agregadas pueden responder a cambios de base o reasignaciones internas."
+        ],
+        "right_of_reply": [
+          "DIPRES",
+          "Ministerios sectoriales"
+        ],
+        "unanswered_questions": [
+          "Qué glosas quedaron aprobadas",
+          "Qué partidas fueron repuestas o rechazadas",
+          "Cuál es el impacto exacto para Los Ríos"
+        ],
+        "next_diligence": "Cerrar resultados con actas oficiales y comparar con el proyecto original y compromisos regionales.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s21"
+        ]
+      }
     ]
   },
   "agenda": {
@@ -652,7 +778,28 @@
       "status": "EN CURSO",
       "next_action": "Obtener resultados oficiales y cruzar con prioridades regionales.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Obtener resultados oficiales y cruzar con prioridades regionales."
+      "pending": "Obtener resultados oficiales y cruzar con prioridades regionales.",
+      "case_id": "case-01",
+      "current_state": "EN CURSO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "title": "Comisión Especial Mixta",
+          "detail": "Doble jornada citada 10:00-13:00 y 15:00-20:00 para boletín 18.702-05.",
+          "source_ids": [
+            "s1"
+          ]
+        },
+        {
+          "date": "2026-11-02",
+          "title": "Intervención Gatica",
+          "detail": "Solicitud de extensión transitoria para obras menores y observación sobre anticipos de subsidios de vivienda.",
+          "source_ids": [
+            "s2"
+          ]
+        }
+      ]
     },
     {
       "name": "Caso Rabat",
@@ -660,7 +807,28 @@
       "status": "EN CURSO",
       "next_action": "Seguir decretos, investigación, AC y propuestas legislativas.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Seguir decretos, investigación, AC y propuestas legislativas."
+      "pending": "Seguir decretos, investigación, AC y propuestas legislativas.",
+      "case_id": "case-02",
+      "current_state": "EN CURSO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "title": "Respaldo presidencial reportado",
+          "detail": "El ministro afirmó contar con respaldo del Presidente.",
+          "source_ids": [
+            "s3"
+          ]
+        },
+        {
+          "date": "2026-11-02",
+          "title": "AC en preparación",
+          "detail": "Oposición mantiene presión por acusación constitucional y entrega de decretos.",
+          "source_ids": [
+            "s17"
+          ]
+        }
+      ]
     },
     {
       "name": "MOP / Obras Los Ríos",
@@ -668,7 +836,20 @@
       "status": "EN CURSO",
       "next_action": "Cruzar presupuesto con cartera y compromisos.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Cruzar presupuesto con cartera y compromisos."
+      "pending": "Cruzar presupuesto con cartera y compromisos.",
+      "case_id": "case-03",
+      "current_state": "EN CURSO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-01",
+          "title": "Mocho Choshuenco",
+          "detail": "Se reportó avance administrativo para acceso desde Futrono, con primer tramo aproximado de 9 km.",
+          "source_ids": [
+            "s13"
+          ]
+        }
+      ]
     },
     {
       "name": "Peajes Lanco-La Unión",
@@ -676,7 +857,20 @@
       "status": "EN CURSO",
       "next_action": "Solicitar/obtener cronograma oficial MOP-Concesiones y condiciones para residentes.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Solicitar/obtener cronograma oficial MOP-Concesiones y condiciones para residentes."
+      "pending": "Solicitar/obtener cronograma oficial MOP-Concesiones y condiciones para residentes.",
+      "case_id": "case-04",
+      "current_state": "EN CURSO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "title": "Nuevo esquema de cobro",
+          "detail": "Concesionaria proyecta sistema mixto desde marzo de 2027 y cobro electrónico proporcional desde 2029.",
+          "source_ids": [
+            "s10"
+          ]
+        }
+      ]
     },
     {
       "name": "Seguridad Los Ríos",
@@ -684,7 +878,28 @@
       "status": "EN CURSO",
       "next_action": "Seguir Mehuín y Angachilla; detectar brechas institucionales.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Seguir Mehuín y Angachilla; detectar brechas institucionales."
+      "pending": "Seguir Mehuín y Angachilla; detectar brechas institucionales.",
+      "case_id": "case-05",
+      "current_state": "EN CURSO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "title": "Mehuín",
+          "detail": "Riña con tres lesionados reportados.",
+          "source_ids": [
+            "s7"
+          ]
+        },
+        {
+          "date": "2026-11-02",
+          "title": "Angachilla",
+          "detail": "Homicidio frustrado bajo investigación de ECOH, OS9 y Labocar.",
+          "source_ids": [
+            "s8"
+          ]
+        }
+      ]
     },
     {
       "name": "Educación/FUAS/SLEP",
@@ -692,7 +907,28 @@
       "status": "SEGUIMIENTO",
       "next_action": "Comunicar plazo FUAS y seguir conservación de establecimientos.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Comunicar plazo FUAS y seguir conservación de establecimientos."
+      "pending": "Comunicar plazo FUAS y seguir conservación de establecimientos.",
+      "case_id": "case-06",
+      "current_state": "SEGUIMIENTO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "title": "FUAS",
+          "detail": "Plazo vigente hasta el 5 de noviembre; 9.334 postulaciones regionales informadas en primer período.",
+          "source_ids": [
+            "s14"
+          ]
+        },
+        {
+          "date": "2026-11-01",
+          "title": "Conservación escolar",
+          "detail": "Más de $2.030 millones adjudicados para dos establecimientos de Valdivia.",
+          "source_ids": [
+            "s12"
+          ]
+        }
+      ]
     },
     {
       "name": "Mocho Choshuenco / Futrono",
@@ -700,7 +936,20 @@
       "status": "SEGUIMIENTO",
       "next_action": "Verificar convenio GORE-MOP y licitación de primera etapa.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Verificar convenio GORE-MOP y licitación de primera etapa."
+      "pending": "Verificar convenio GORE-MOP y licitación de primera etapa.",
+      "case_id": "case-07",
+      "current_state": "SEGUIMIENTO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-01",
+          "title": "Primer tramo",
+          "detail": "MOP reportó avance para habilitar acceso y reconstruir un puente.",
+          "source_ids": [
+            "s13"
+          ]
+        }
+      ]
     },
     {
       "name": "Prevención incendios y calor",
@@ -708,7 +957,20 @@
       "status": "SEGUIMIENTO",
       "next_action": "Cruzar plan regional con recursos y comunas de mayor riesgo.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Cruzar plan regional con recursos y comunas de mayor riesgo."
+      "pending": "Cruzar plan regional con recursos y comunas de mayor riesgo.",
+      "case_id": "case-08",
+      "current_state": "SEGUIMIENTO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "title": "Alerta preventiva",
+          "detail": "Alerta Temprana Preventiva Nacional por calor hasta marzo de 2027.",
+          "source_ids": [
+            "s16"
+          ]
+        }
+      ]
     },
     {
       "name": "RN / estabilidad oficialista",
@@ -716,26 +978,103 @@
       "status": "SEGUIMIENTO",
       "next_action": "Monitorear posición institucional y efectos de la crisis Rabat.",
       "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
-      "pending": "Monitorear posición institucional y efectos de la crisis Rabat."
+      "pending": "Monitorear posición institucional y efectos de la crisis Rabat.",
+      "case_id": "case-09",
+      "current_state": "SEGUIMIENTO",
+      "last_change": "2026-11-02",
+      "timeline": [
+        {
+          "date": "2026-11-02",
+          "title": "Directiva RN",
+          "detail": "La mesa analizó la crisis Rabat y optó por no romper con el Gobierno, según prensa.",
+          "source_ids": [
+            "s5"
+          ]
+        }
+      ]
     }
   ],
   "commitments": [],
   "management_actions": [
     {
-      "priority": "1",
-      "action": "Presupuesto 2027: conseguir acta/resultados de cierre y preparar minuta de impactos en Los Ríos."
+      "action_id": "act-001",
+      "case_id": "case-01",
+      "priority": "CRÍTICO",
+      "action_type": "MINUTA",
+      "title": "Cerrar Presupuesto 2027 del día",
+      "detail": "Conseguir acta y resultados oficiales de la jornada y traducirlos a impactos concretos para Los Ríos.",
+      "target": "Gabinete / Comisión Especial Mixta / DIPRES",
+      "status": "PENDIENTE",
+      "due_date": "2026-11-03",
+      "rationale": "Evitar trabajar con versiones de prensa y orientar decisiones de la senadora.",
+      "source_ids": [
+        "s1",
+        "s2"
+      ]
     },
     {
-      "priority": "2",
-      "action": "Rabat: mantener expediente jurídico separado de la disputa política y actualizar posibles soluciones legislativas."
+      "action_id": "act-002",
+      "case_id": "case-02",
+      "priority": "CRÍTICO",
+      "action_type": "SEGUIMIENTO",
+      "title": "Actualizar expediente Rabat",
+      "detail": "Separar decretos, investigación penal, responsabilidad política, AC y posibles respuestas legislativas.",
+      "target": "Ministerio de Justicia / Cámara / Ministerio Público",
+      "status": "EN_CURSO",
+      "due_date": null,
+      "rationale": "La controversia tiene varias dimensiones jurídicas que no deben confundirse.",
+      "source_ids": [
+        "s3",
+        "s4",
+        "s17",
+        "s18"
+      ]
     },
     {
-      "priority": "3",
-      "action": "Peajes: obtener antecedente oficial de Concesiones/MOP sobre cronograma, tarifas y gratuidad intracomunal."
+      "action_id": "act-003",
+      "case_id": "case-04",
+      "priority": "ALTO",
+      "action_type": "OFICIO",
+      "title": "Pedir antecedentes oficiales sobre peajes",
+      "detail": "Solicitar cronograma, tarifas, tecnología de cobro y condiciones de gratuidad intracomunal.",
+      "target": "MOP / Dirección General de Concesiones",
+      "status": "PENDIENTE",
+      "due_date": null,
+      "rationale": "La información pública disponible aún proviene principalmente de cobertura periodística.",
+      "source_ids": [
+        "s10"
+      ]
     },
     {
-      "priority": "4",
-      "action": "Seguridad regional: seguir Fiscalía y autoridades sobre Mehuín y Angachilla sin sobrerreaccionar antes de contar con nuevos antecedentes."
+      "action_id": "act-004",
+      "case_id": "case-05",
+      "priority": "ALTO",
+      "action_type": "SEGUIMIENTO",
+      "title": "Monitorear Mehuín y Angachilla",
+      "detail": "Seguir diligencias de Fiscalía y policías y detectar si emerge una brecha institucional que justifique gestión.",
+      "target": "Fiscalía Regional / Seguridad Pública / Carabineros",
+      "status": "EN_CURSO",
+      "due_date": null,
+      "rationale": "Son los hechos de seguridad regional más relevantes del día.",
+      "source_ids": [
+        "s7",
+        "s8"
+      ]
+    },
+    {
+      "action_id": "act-005",
+      "case_id": "case-06",
+      "priority": "MEDIO",
+      "action_type": "PRENSA",
+      "title": "Servicio público FUAS",
+      "detail": "Evaluar difusión del plazo de postulación hasta el 5 de noviembre.",
+      "target": "Estudiantes y familias de Los Ríos",
+      "status": "PENDIENTE",
+      "due_date": "2026-11-05",
+      "rationale": "Es una oportunidad concreta de información útil territorial.",
+      "source_ids": [
+        "s14"
+      ]
     }
   ],
   "sources": [
@@ -888,7 +1227,85 @@
     "corrections_omissions": [
       "El consolidado incorpora temas que el RADAR horario de las 19:00 había detectado pero que no fueron visibles para el usuario por problema de entrega."
     ],
-    "main_limitation": "Consolidado amplio hasta las 19:21, pero no equivale a cierre definitivo del día; la Comisión Mixta estaba citada hasta las 20:00."
+    "main_limitation": "Consolidado amplio hasta las 19:21, pero no equivale a cierre definitivo del día; la Comisión Mixta estaba citada hasta las 20:00.",
+    "matrix": [
+      {
+        "front": "Los Ríos",
+        "status": "COMPLETO",
+        "checked": [
+          "12 comunas",
+          "medios regionales",
+          "fuentes institucionales disponibles"
+        ],
+        "inaccessible": [],
+        "debt": [
+          "Verificar plan regional de incendios en fuente primaria"
+        ]
+      },
+      {
+        "front": "Nacional",
+        "status": "COMPLETO",
+        "checked": [
+          "prensa nacional plural",
+          "economía",
+          "Justicia",
+          "seguridad"
+        ],
+        "inaccessible": [],
+        "debt": []
+      },
+      {
+        "front": "Senado",
+        "status": "PARCIAL",
+        "checked": [
+          "citaciones",
+          "plazos",
+          "Presupuesto 2027"
+        ],
+        "inaccessible": [
+          "algunos servicios dinámicos"
+        ],
+        "debt": [
+          "cerrar votaciones y actas de la tarde"
+        ]
+      },
+      {
+        "front": "Cámara",
+        "status": "PARCIAL",
+        "checked": [
+          "AC Rabat",
+          "alertas tempranas"
+        ],
+        "inaccessible": [],
+        "debt": [
+          "profundizar Sala y comisiones"
+        ]
+      },
+      {
+        "front": "Gatica",
+        "status": "COMPLETO",
+        "checked": [
+          "3 variantes de búsqueda",
+          "prensa",
+          "actividad presupuestaria"
+        ],
+        "inaccessible": [],
+        "debt": []
+      },
+      {
+        "front": "RN",
+        "status": "COMPLETO",
+        "checked": [
+          "directiva",
+          "voces partidarias",
+          "controversia Rabat"
+        ],
+        "inaccessible": [],
+        "debt": [
+          "verificar formalización de posiciones de bancada"
+        ]
+      }
+    ]
   },
   "system": {
     "pre_radar": {

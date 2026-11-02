@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RADAR — Centro de Mando</title>
+<style>
+:root{
+ --rn-blue:#13107e;
+ --rn-red:#e41434;
+ --ink:#1e2540;
+ --muted:#697289;
+ --bg:#f5f7fb;
+ --card:#ffffff;
+ --line:#e2e7f0;
+ --gold:#c9ab67;
+ --ok:#0e9f6e;
+ --warn:#d97706;
+ --danger:#c62828;
+ --shadow:0 10px 30px rgba(25,42,86,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+.header{
+  background:linear-gradient(140deg,var(--rn-blue),#1f2a5a 60%, #2e396d);
+  color:white;
+  padding:28px 22px 24px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:4px solid var(--gold);
+}
+.header::after{
+  content:"";
+  position:absolute;inset:auto -120px -120px auto;
+  width:360px;height:360px;border-radius:50%;
+  background:rgba(255,255,255,.06);
+}
+.container{max-width:1380px;margin:0 auto}
+.brand-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img.logo{width:78px;height:78px;object-fit:contain;background:rgba(255,255,255,.1);border-radius:16px;padding:8px}
+.brand-copy h1{margin:0;font-size:30px;line-height:1.05;font-weight:800;letter-spacing:.2px}
+.brand-copy p{margin:8px 0 0;color:#dfe6ff;font-size:14px;max-width:860px}
+.top-meta{display:flex;gap:10px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.22);padding:10px 12px;border-radius:999px;font-size:12px;font-weight:700}
+.dot{width:10px;height:10px;border-radius:50%;background:#5be0a1;box-shadow:0 0 0 5px rgba(91,224,161,.14)}
+.main{padding:22px}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-top:-30px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.hero-main{padding:24px}
+.hero-main h2{margin:0 0 10px;font-size:24px}
+.hero-main p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.cta{border:1px solid var(--line);padding:12px 14px;border-radius:14px;background:#fafbff;font-size:13px;font-weight:700}
+.hero-profile{padding:0;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.hero-profile .banner{background:linear-gradient(145deg,#ffffff,#f1f4ff);padding:16px 16px 0}
+.hero-profile img{width:100%;display:block;object-fit:cover}
+.profile-info{padding:16px}
+.profile-info h3{margin:0;font-size:20px}
+.profile-info p{margin:8px 0 0;color:var(--muted);font-size:14px}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:18px}
+.metric{padding:18px}
+.metric .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.metric .value{font-size:28px;font-weight:800;margin-top:8px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 16px}
+.tab{background:white;border:1px solid var(--line);padding:12px 14px;border-radius:14px;cursor:pointer;font-weight:700;font-size:14px}
+.tab.active{background:var(--rn-blue);color:white;border-color:var(--rn-blue)}
+.panel{display:none}
+.panel.active{display:block}
+.grid-2{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+.section{padding:20px}
+.section h3{margin:0 0 14px;font-size:19px}
+.section-sub{color:var(--muted);font-size:13px;margin-top:-6px;margin-bottom:14px}
+.alert{border:1px solid #f2d0d5;border-left:5px solid var(--danger);background:#fff7f8;border-radius:16px;padding:16px;margin-bottom:12px}
+.alert.high{border-color:#f4deb1;border-left-color:var(--warn);background:#fffaf2}
+.badge{display:inline-block;font-size:11px;font-weight:800;padding:5px 8px;border-radius:999px;border:1px solid var(--line);margin-right:8px;background:white}
+.small{font-size:13px;color:var(--muted)}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kv .box{border:1px solid var(--line);border-radius:16px;padding:14px}
+.kv .box h4{margin:0;font-size:14px}
+.kv .box p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
+.list{display:grid;gap:10px}
+.item{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .title{font-weight:800}
+.item .meta{font-size:13px;color:var(--muted);margin-top:6px}
+.state{font-size:11px;font-weight:800;border-radius:999px;padding:6px 10px;border:1px solid var(--line);background:#f9fbff;height:max-content;white-space:nowrap}
+.state.ok{color:var(--ok);border-color:#b8ead5;background:#f0fdf7}
+.state.critical{color:var(--danger);border-color:#f3c0c0;background:#fff1f1}
+.state.warn{color:var(--warn);border-color:#f1d39e;background:#fff8ea}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 11px;background:#f7f9fd;border:1px solid var(--line);border-radius:999px;font-size:12px}
+.coverage{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.coverage .c{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fbfcff}
+.coverage .c .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.coverage .c .v{font-size:16px;font-weight:800;margin-top:6px}
+.footer{margin:24px 0 10px;text-align:center;color:var(--muted);font-size:12px}
+.controls{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.btn{border:1px solid var(--line);background:white;border-radius:12px;padding:10px 12px;font-size:13px;font-weight:700;cursor:pointer}
+.timestamp{font-size:12px;color:var(--muted)}
+@media (max-width:1100px){
+  .hero,.grid-2{grid-template-columns:1fr}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .coverage{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:700px){
+  .brand{align-items:flex-start}
+  .brand img.logo{width:62px;height:62px}
+  .brand-copy h1{font-size:24px}
+  .metrics{grid-template-columns:1fr 1fr}
+  .kv{grid-template-columns:1fr}
+  .coverage{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="container brand-row">
+    <div class="brand">
+      <img class="logo" src="assets/rn_logo.png" alt="Renovación Nacional" />
+      <div class="brand-copy">
+        <h1>RADAR · Centro de Mando</h1>
+        <p id="subtitle">Plataforma visual del gabinete para revisar el sistema RADAR completo, con actualización horaria y visualización por áreas.</p>
+      </div>
+    </div>
+    <div class="top-meta">
+      <div class="pill"><span class="dot"></span><span id="statusText">Sistema operativo</span></div>
+      <div class="pill">Acceso por enlace</div>
+      <div class="pill" id="nextUpdate">Próxima actualización: --</div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+    <section class="hero">
+      <div class="card hero-main">
+        <h2 id="heroTitle">Inteligencia legislativa, territorial e institucional</h2>
+        <p id="heroText">Centro visual para consultar el RADAR completo: Los Ríos, Senado, Cámara, actividad de la senadora, RN, expedientes, agenda y estado del sistema.</p>
+        <div class="cta-row">
+          <div class="cta" id="lastUpdate">Última actualización: --</div>
+          <div class="cta" id="ownerText">Gabinete Senadora María José Gatica</div>
+          <div class="cta">Visualización ejecutiva + informe completo</div>
+        </div>
+      </div>
+      <div class="card hero-profile">
+        <div class="banner">
+          <img src="assets/senadora_gatica.png" alt="Senadora María José Gatica" />
+        </div>
+        <div class="profile-info">
+          <h3>Senadora María José Gatica</h3>
+          <p>Vista ejecutiva pensada para el jefe de gabinete y la senadora, con seguimiento continuo del sistema informativo y sus expedientes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics" id="metrics"></section>
+
+    <div class="controls">
+      <div class="tabs">
+        <button class="tab active" data-tab="resumen">Resumen</button>
+        <button class="tab" data-tab="radar">RADAR completo</button>
+        <button class="tab" data-tab="legislativo">Legislativo</button>
+        <button class="tab" data-tab="territorial">Los Ríos</button>
+        <button class="tab" data-tab="expedientes">Expedientes</button>
+        <button class="tab" data-tab="sistema">Sistema</button>
+        <button class="tab" data-tab="historial">Historial</button>
+      </div>
+      <div>
+        <button class="btn" id="refreshBtn">Actualizar ahora</button>
+        <span class="timestamp" id="timestampText">Leyendo el último ciclo…</span>
+      </div>
+    </div>
+
+    <section class="panel active" id="panel-resumen">
+      <div class="grid-2">
+        <div class="card section">
+          <h3>Alertas críticas</h3>
+          <div class="section-sub">Lo más importante del ciclo actual</div>
+          <div id="alerts"></div>
+        </div>
+        <div class="card section">
+          <h3>Agenda ejecutiva</h3>
+          <div class="section-sub">Horizonte 24h · 72h · 7 días</div>
+          <div id="agenda" class="list"></div>
+        </div>
+      </div>
+      <div class="card section" style="margin-top:16px">
+        <h3>Control de cobertura</h3>
+        <div class="section-sub">Cobertura visible del ciclo actual</div>
+        <div id="coverage" class="coverage"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-radar">
+      <div class="card section">
+        <h3>RADAR completo</h3>
+        <div class="section-sub">Aquí debería cargarse el informe horario completo y estructurado del ciclo actual</div>
+        <div class="kv" id="radarBlocks"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-legislativo">
+      <div class="grid-2">
+        <div class="card section">
+          <h3>Radar legislativo</h3>
+          <div class="section-sub">Senado + Cámara como sistemas separados</div>
+          <div id="legislativeList" class="list"></div>
+        </div>
+        <div class="card section">
+          <h3>Marco de revisión</h3>
+          <div class="section-sub">Checklists que debe cubrir el sistema</div>
+          <div class="chips">
+            <span class="chip">Cuenta</span>
+            <span class="chip">Tabla</span>
+            <span class="chip">Comisiones</span>
+            <span class="chip">Plazos</span>
+            <span class="chip">Votaciones</span>
+            <span class="chip">Intervenciones</span>
+            <span class="chip">Hacienda</span>
+            <span class="chip">Obras Públicas</span>
+            <span class="chip">Sala Cámara</span>
+            <span class="chip">Mensajes</span>
+            <span class="chip">Mociones</span>
+            <span class="chip">Proyectos al Senado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-territorial">
+      <div class="card section">
+        <h3>Los Ríos · Cobertura de 12 comunas</h3>
+        <div class="section-sub">Exploración territorial obligatoria</div>
+        <div class="chips" id="communes"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-expedientes">
+      <div class="card section">
+        <h3>Registro Maestro de Expedientes</h3>
+        <div class="section-sub">Estado actual, prioridad y próximo paso</div>
+        <div class="list" id="cases"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-sistema">
+      <div class="card section">
+        <h3>Salud del sistema</h3>
+        <div class="section-sub">Automatizaciones activas y recuperación</div>
+        <div class="list" id="systemList"></div>
+      </div>
+    </section>
+
+
+    <section class="panel" id="panel-historial">
+      <div class="card section">
+        <h3>Historial horario</h3>
+        <div class="section-sub">Cada ciclo se conserva; el último informe nunca sobrescribe el historial</div>
+        <div class="list" id="historyList">
+          <div class="item"><div><div class="title">Historial aún no conectado</div><div class="meta">Al alimentar el site, los ciclos aparecerán aquí.</div></div><div class="state">Pendiente</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">Diseño institucional inspirado en los colores facilitados por el usuario. Feed preparado para actualización horaria desde <code>data/latest.json</code>.</div>
+  </div>
+</main>
+
+<script>
+const fallback = {
+  "meta": {
+    "title": "RADAR — Centro de Mando",
+    "subtitle": "Plataforma informativa horaria del gabinete de la senadora María José Gatica",
+    "last_update": "2026-11-02 19:00",
+    "next_update": "2026-11-02 20:00",
+    "status": "Operativo",
+    "visibility": "Acceso por enlace",
+    "owner": "Gabinete Senadora María José Gatica"
+  },
+  "hero": {
+    "headline": "Inteligencia legislativa, territorial e institucional",
+    "text": "Centro visual para consultar el RADAR completo: Los Ríos, Senado, Cámara, actividad de la senadora, RN, expedientes, agenda y estado del sistema."
+  },
+  "metrics": {
+    "Alertas críticas": 2,
+    "Expedientes activos": 18,
+    "Cambios legislativos": 7,
+    "Cobertura Los Ríos": "12/12",
+    "Estado del sistema": "Activo"
+  },
+  "alerts": [
+    {
+      "level": "CRÍTICO",
+      "title": "Presupuesto 2027",
+      "summary": "Comisión Especial Mixta, indicaciones, SUBDERE y efectos en Los Ríos bajo vigilancia reforzada.",
+      "action": "Seguir resultados oficiales, verificar cambios y preparar gestión."
+    },
+    {
+      "level": "ALTO",
+      "title": "Agenda territorial Los Ríos",
+      "summary": "Seguridad, salud, MOP, SSR/APR y compromisos regionales con seguimiento abierto.",
+      "action": "Cruzar hallazgos con expedientes y oportunidades de gestión."
+    }
+  ],
+  "sections": {
+    "resumen": [
+      {"title": "Qué cambió desde el último informe", "text": "Cambios legislativos, expedientes actualizados, menciones de la senadora y movimientos institucionales."},
+      {"title": "Prioridades del gabinete", "text": "Alertas críticas, agenda inmediata y acciones sugeridas."}
+    ],
+    "legislativo": [
+      "Senado: Cuenta, Tabla, Comisiones, Plazos, Votaciones, Intervenciones, Hacienda y Obras Públicas.",
+      "Cámara: Sala, Comisiones, Tramitación, Mensajes, Mociones, Votaciones y alertas tempranas para el Senado.",
+      "Presupuesto 2027 como expediente vivo."
+    ],
+    "territorial": [
+      "Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "La Unión", "Río Bueno", "Futrono", "Lago Ranco"
+    ],
+    "expedientes": [
+      {"name": "Presupuesto 2027", "status": "CRÍTICO", "next": "Verificar resolución de la Mixta"},
+      {"name": "SUBDERE PMU/PMB", "status": "ALTO", "next": "Cruzar con proyectos municipales"},
+      {"name": "MOP / Obras Los Ríos", "status": "ALTO", "next": "Actualizar cartera y compromisos"},
+      {"name": "Mujeres Rurales", "status": "ALTO", "next": "Monitorear continuidad y cobertura 2027"},
+      {"name": "SSR/APR Calafquén y Coñaripe", "status": "ALTO", "next": "Verificar hitos MOP/DOH"},
+      {"name": "Rabat", "status": "SEGUIMIENTO", "next": "Separar dimensión jurídica, política y legislativa"}
+    ],
+    "sistema": [
+      {"name": "PRE-RADAR :50", "state": "Activo"},
+      {"name": "Watchdog PRE :55", "state": "Activo"},
+      {"name": "RADAR :00", "state": "Activo"},
+      {"name": "Watchdog RADAR :08", "state": "Activo"}
+    ],
+    "agenda": [
+      {"label": "24h", "text": "Vigilar resultados oficiales, cambios de tabla, citaciones y partidas críticas."},
+      {"label": "72h", "text": "Preparar dossiers de decisión y cruces con compromisos de Los Ríos."},
+      {"label": "7 días", "text": "Consolidar agenda parlamentaria, territorial y oportunidades de gestión."}
+    ]
+  }
+};
+
+function esc(text){
+  return String(text ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+function render(data){
+  document.getElementById('subtitle').textContent = data.meta.subtitle;
+  document.getElementById('statusText').textContent = "Estado: " + data.meta.status;
+  document.getElementById('nextUpdate').textContent = "Próxima actualización: " + data.meta.next_update;
+  document.getElementById('heroTitle').textContent = data.hero.headline;
+  document.getElementById('heroText').textContent = data.hero.text;
+  document.getElementById('lastUpdate').textContent = "Última actualización: " + data.meta.last_update;
+  document.getElementById('ownerText').textContent = data.meta.owner;
+  document.getElementById('timestampText').textContent = "Ciclo visible: " + data.meta.last_update;
+
+  const metrics = document.getElementById('metrics');
+  metrics.innerHTML = "";
+  Object.entries(data.metrics).forEach(([k,v])=>{
+    const el = document.createElement('div');
+    el.className = 'card metric';
+    el.innerHTML = `<div class="label">${esc(k)}</div><div class="value">${esc(v)}</div>`;
+    metrics.appendChild(el);
+  });
+
+  const alerts = document.getElementById('alerts');
+  alerts.innerHTML = "";
+  data.alerts.forEach(a=>{
+    const cls = a.level === "CRÍTICO" ? "alert" : "alert high";
+    const el = document.createElement('div');
+    el.className = cls;
+    el.innerHTML = `<div><span class="badge">${esc(a.level)}</span><strong>${esc(a.title)}</strong></div>
+      <div class="small" style="margin-top:8px">${esc(a.summary)}</div>
+      <div class="small" style="margin-top:8px"><strong>Acción:</strong> ${esc(a.action)}</div>`;
+    alerts.appendChild(el);
+  });
+
+  const agenda = document.getElementById('agenda');
+  agenda.innerHTML = "";
+  data.sections.agenda.forEach(x=>{
+    const el = document.createElement('div');
+    el.className = 'item';
+    el.innerHTML = `<div><div class="title">${esc(x.label)}</div><div class="meta">${esc(x.text)}</div></div><div class="state ok">Agenda</div>`;
+    agenda.appendChild(el);
+  });
+
+  const coverage = document.getElementById('coverage');
+  coverage.innerHTML = "";
+  [
+    ["Los Ríos","12/12 comunas"],
+    ["Senado","Checklist activo"],
+    ["Cámara","Checklist activo"],
+    ["Gatica","Búsqueda + oficial"],
+    ["RN","Institucional + bancadas"]
+  ].forEach(([k,v])=>{
+    const el = document.createElement('div');
+    el.className = 'c';
+    el.innerHTML = `<div class="k">${esc(k)}</div><div class="v">${esc(v)}</div>`;
+    coverage.appendChild(el);
+  });
+
+  const radarBlocks = document.getElementById('radarBlocks');
+  radarBlocks.innerHTML = "";
+  data.sections.resumen.forEach(b=>{
+    const el = document.createElement('div');
+    el.className = 'box';
+    el.innerHTML = `<h4>${esc(b.title)}</h4><p>${esc(b.text)}</p>`;
+    radarBlocks.appendChild(el);
+  });
+
+  const legislativeList = document.getElementById('legislativeList');
+  legislativeList.innerHTML = "";
+  data.sections.legislativo.forEach(line=>{
+    const el = document.createElement('div');
+    el.className = 'item';
+    el.innerHTML = `<div><div class="title">${esc(line)}</div></div><div class="state warn">Seguimiento</div>`;
+    legislativeList.appendChild(el);
+  });
+
+  const communes = document.getElementById('communes');
+  communes.innerHTML = "";
+  data.sections.territorial.forEach(c=>{
+    const el = document.createElement('span');
+    el.className = 'chip';
+    el.textContent = c;
+    communes.appendChild(el);
+  });
+
+  const cases = document.getElementById('cases');
+  cases.innerHTML = "";
+  data.sections.expedientes.forEach(c=>{
+    const el = document.createElement('div');
+    el.className = 'item';
+    const stateCls = c.status === "CRÍTICO" ? "state critical" : (c.status === "ALTO" ? "state warn" : "state ok");
+    el.innerHTML = `<div><div class="title">${esc(c.name)}</div><div class="meta">Próximo paso: ${esc(c.next)}</div></div><div class="${stateCls}">${esc(c.status)}</div>`;
+    cases.appendChild(el);
+  });
+
+  const systemList = document.getElementById('systemList');
+  systemList.innerHTML = "";
+  data.sections.sistema.forEach(s=>{
+    const el = document.createElement('div');
+    el.className = 'item';
+    el.innerHTML = `<div><div class="title">${esc(s.name)}</div></div><div class="state ok">${esc(s.state)}</div>`;
+    systemList.appendChild(el);
+  });
+}
+
+
+async function loadHistory(){
+  const container = document.getElementById('historyList');
+  if(!container) return;
+  try{
+    const response = await fetch('data/history/index.json?ts=' + Date.now(), {cache:'no-store'});
+    if(!response.ok) throw new Error('Sin historial');
+    const rows = await response.json();
+    if(!Array.isArray(rows) || rows.length === 0) throw new Error('Vacío');
+    container.innerHTML = '';
+    rows.slice(0,100).forEach(r=>{
+      const el = document.createElement('div');
+      el.className = 'item';
+      const recovery = r.watchdog_recovery ? ' · recuperación watchdog' : '';
+      el.innerHTML = `<div><div class="title">${esc(r.cycle_id || r.generated_at || 'Ciclo')}</div><div class="meta">${esc(r.report_type || 'RADAR_FINAL')}${esc(recovery)}</div></div><div class="state ok">Guardado</div>`;
+      container.appendChild(el);
+    });
+  }catch(err){
+    container.innerHTML = '<div class="item"><div><div class="title">Sin historial cargado</div><div class="meta">El historial aparecerá cuando se sincronicen los ciclos.</div></div><div class="state">Pendiente</div></div>';
+  }
+}
+
+async function loadData(){
+  const btn = document.getElementById('refreshBtn');
+  btn.disabled = true;
+  btn.textContent = 'Actualizando…';
+  try{
+    const response = await fetch('data/latest.json?ts=' + Date.now(), {cache:'no-store'});
+    if(!response.ok) throw new Error('No se pudo leer latest.json');
+    const data = await response.json();
+    render(data);
+    loadHistory();
+  }catch(err){
+    render(fallback);
+    loadHistory();
+  }finally{
+    btn.disabled = false;
+    btn.textContent = 'Actualizar ahora';
+  }
+}
+
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+document.getElementById('refreshBtn').addEventListener('click', loadData);
+loadData();
+setInterval(loadData, 60 * 60 * 1000);
+</script>
+</body>
+</html>

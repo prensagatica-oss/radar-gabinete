@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "cycle_id": "2026-11-02-cierre-1921",
+    "generated_at": "2026-11-02T19:21:40-03:00",
+    "report_type": "RADAR_CONSOLIDADO_DIA",
+    "watchdog_recovery": false,
+    "file": "data/history/2026-11-02-cierre-1921.json"
+  }
+]

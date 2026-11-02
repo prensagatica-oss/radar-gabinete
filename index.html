@@ -393,6 +393,63 @@ function normalizeRadarData(data){
   };
 }
 
+
+function renderCanonicalFull(data){
+  const radar = document.getElementById('radarBlocks');
+  if(!radar) return;
+  const arr=x=>Array.isArray(x)?x:[];
+  const sec=(title, items)=>{
+    const box=document.createElement('div');
+    box.className='box';
+    const body=arr(items).map(i=>{
+      if(typeof i==='string') return '<div class="meta" style="margin-top:8px">'+esc(i)+'</div>';
+      const t=i?.title||i?.name||i?.headline||i?.event||'Registro';
+      const s=i?.summary||i?.description||i?.detail||i?.why_it_matters||i?.status||i?.state||'';
+      return '<div style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>'+esc(t)+'</strong>'+(s?'<div class="meta">'+esc(s)+'</div>':'')+'</div>';
+    }).join('');
+    box.innerHTML='<h4>'+esc(title)+'</h4>'+ (body||'<p>Sin registros cargados.</p>');
+    radar.appendChild(box);
+  };
+  radar.innerHTML='';
+
+  sec('Síntesis ejecutiva', [
+    {title:data?.executive_summary?.headline||'Resumen', summary:data?.executive_summary?.summary||''},
+    ...arr(data?.executive_summary?.what_changed).map(x=>({title:'Cambio del día',summary:typeof x==='string'?x:(x?.summary||x?.title||'')})),
+    ...arr(data?.executive_summary?.top_priorities).map(x=>({title:'Prioridad',summary:typeof x==='string'?x:(x?.summary||x?.title||'')}))
+  ]);
+
+  sec('Alertas', data?.alerts);
+  sec('Los Ríos', data?.los_rios?.items);
+  sec('Nacional', data?.national?.items);
+  sec('Legislativo · Senado', data?.legislative?.senate?.items);
+  sec('Legislativo · Cámara', data?.legislative?.chamber?.items);
+  sec('Presupuesto 2027', data?.legislative?.budget_2027?.items);
+  sec('Senadora María José Gatica', data?.gatica?.items);
+  sec('Renovación Nacional', data?.rn?.items);
+
+  const inv=[];
+  const invObj=data?.investigation||{};
+  Object.entries(invObj).forEach(([k,v])=>{
+    if(Array.isArray(v)) v.forEach(x=>inv.push(typeof x==='string'?{title:k.replaceAll('_',' '),summary:x}:{title:x?.title||k.replaceAll('_',' '),summary:x?.summary||x?.detail||''}));
+  });
+  sec('Investigación y contraste', inv);
+  sec('Expedientes', data?.cases);
+  sec('Gestiones recomendadas', data?.management_actions);
+
+  const agenda=[];
+  [['Ahora',data?.agenda?.now],['24h',data?.agenda?.['24h']],['72h',data?.agenda?.['72h']],['7 días',data?.agenda?.['7d']]].forEach(([h,items])=>{
+    arr(items).forEach(x=>agenda.push({title:h,summary:typeof x==='string'?x:(x?.summary||x?.title||'')}));
+  });
+  sec('Agenda', agenda);
+
+  if(data?.full_report?.body){
+    const box=document.createElement('div');
+    box.className='box';
+    box.innerHTML='<h4>'+esc(data.full_report.title||'Informe completo')+'</h4><p style="white-space:pre-wrap">'+esc(data.full_report.body)+'</p>';
+    radar.appendChild(box);
+  }
+}
+
 function render(data){
   document.getElementById('subtitle').textContent = data.meta.subtitle;
   document.getElementById('statusText').textContent = "Estado: " + data.meta.status;
@@ -526,6 +583,7 @@ async function loadData(){
     if(!response.ok) throw new Error('No se pudo leer latest.json');
     const data = await response.json();
     render(normalizeRadarData(data));
+    renderCanonicalFull(data);
     loadHistory();
   }catch(err){
     render(fallback);

@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>RADAR — Centro de Mando</title>
 <style>
 :root{
@@ -127,6 +131,15 @@ a{text-decoration:none;color:inherit}
 .report-section:first-child{margin-top:0}
 .report-section>h4{margin:0 0 10px;font-size:18px}
 @media (max-width:900px){.detail-grid{grid-template-columns:1fr}}
+
+.searchbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 16px}
+.searchbar input{flex:1;min-width:260px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14px;background:white}
+.stale{color:var(--danger)!important;border-color:#f3c0c0!important;background:#fff1f1!important}
+.source-table{display:grid;gap:10px}
+.source-row{display:grid;grid-template-columns:1.5fr .7fr 2fr;gap:12px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fbfcff;align-items:center}
+.source-row a{color:var(--rn-blue);font-weight:700;word-break:break-all}
+.history-btn{cursor:pointer}
+@media(max-width:800px){.source-row{grid-template-columns:1fr}.searchbar input{min-width:100%}}
 </style>
 </head>
 <body>
@@ -172,7 +185,13 @@ a{text-decoration:none;color:inherit}
 
     <section class="metrics" id="metrics"></section>
 
-    <div class="controls">
+    
+<div class="searchbar">
+  <input id="globalSearch" type="search" placeholder="Buscar en el RADAR actual: Rabat, MOP, Mehuín, presupuesto..." />
+  <button class="btn" id="clearSearch">Limpiar</button>
+  <span class="timestamp" id="searchCount"></span>
+</div>
+<div class="controls">
       <div class="tabs">
         <button class="tab active" data-tab="resumen">Resumen</button>
         <button class="tab" data-tab="radar">RADAR completo</button>
@@ -181,6 +200,7 @@ a{text-decoration:none;color:inherit}
         <button class="tab" data-tab="expedientes">Expedientes</button>
         <button class="tab" data-tab="sistema">Sistema</button>
         <button class="tab" data-tab="historial">Historial</button>
+<button class="tab" data-tab="fuentes">Fuentes</button>
       </div>
       <div>
         <button class="btn" id="refreshBtn">Actualizar ahora</button>
@@ -279,7 +299,15 @@ a{text-decoration:none;color:inherit}
       </div>
     </section>
 
-    <div class="footer">Diseño institucional inspirado en los colores facilitados por el usuario. Feed preparado para actualización horaria desde <code>data/latest.json</code>.</div>
+    
+<section class="panel" id="panel-fuentes">
+  <div class="card section">
+    <h3>Fuentes del ciclo</h3>
+    <div class="section-sub">Trazabilidad de las fuentes citadas en el RADAR actual</div>
+    <div id="sourcesList" class="source-table"></div>
+  </div>
+</section>
+<div class="footer">Diseño institucional inspirado en los colores facilitados por el usuario. Feed preparado para actualización horaria desde <code>data/latest.json</code>.</div>
   </div>
 </main>
 
@@ -612,6 +640,61 @@ function render(data){
 }
 
 
+
+let currentCanonicalData=null;
+
+function renderSources(data){
+  const c=document.getElementById('sourcesList'); if(!c) return;
+  const rows=Array.isArray(data?.sources)?data.sources:[];
+  c.innerHTML=rows.length?rows.map(s=>'<div class="source-row"><div><strong>'+esc(s.name||s.id||'Fuente')+'</strong></div><div>'+esc(s.type||'')+'</div><div>'+(s.url?'<a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.url)+'</a>':'Sin URL')+'</div></div>').join(''):'<div class="small">Sin fuentes cargadas.</div>';
+}
+
+function updateStaleness(data){
+  const el=document.getElementById('lastUpdate'); if(!el) return;
+  const raw=data?.meta?.generated_at||data?.meta?.window_end;
+  if(!raw) return;
+  const t=new Date(raw); if(Number.isNaN(t.getTime())) return;
+  const mins=(Date.now()-t.getTime())/60000;
+  if(mins>90){ el.classList.add('stale'); el.textContent='Última actualización: '+raw+' · ALERTA: ciclo desactualizado'; }
+  else el.classList.remove('stale');
+}
+
+function setupSearch(){
+  const input=document.getElementById('globalSearch'), clear=document.getElementById('clearSearch'), count=document.getElementById('searchCount');
+  if(!input||input.dataset.bound) return;
+  input.dataset.bound='1';
+  const run=()=>{
+    const q=input.value.trim().toLowerCase();
+    const cards=[...document.querySelectorAll('.detail-card,.alert,.item')];
+    let shown=0;
+    cards.forEach(el=>{
+      const ok=!q||el.innerText.toLowerCase().includes(q);
+      el.style.display=ok?'':'none'; if(ok) shown++;
+    });
+    count.textContent=q?shown+' coincidencia(s)':'';
+  };
+  input.addEventListener('input',run);
+  clear.addEventListener('click',()=>{input.value='';run();});
+}
+
+async function loadHistoryFile(file){
+  try{
+    const r=await fetch(file+'?ts='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('No se pudo abrir el ciclo');
+    const d=await r.json();
+    currentCanonicalData=d;
+    render(normalizeRadarData(d));
+    renderCanonicalFull(d);
+    renderSources(d);
+    updateStaleness(d);
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    document.querySelector('[data-tab="radar"]').classList.add('active');
+    document.getElementById('panel-radar').classList.add('active');
+    window.scrollTo({top:document.getElementById('panel-radar').offsetTop-20,behavior:'smooth'});
+  }catch(e){ alert('No se pudo cargar ese ciclo histórico.'); }
+}
+
 async function loadHistory(){
   const container = document.getElementById('historyList');
   if(!container) return;
@@ -625,7 +708,7 @@ async function loadHistory(){
       const el = document.createElement('div');
       el.className = 'item';
       const recovery = r.watchdog_recovery ? ' · recuperación watchdog' : '';
-      el.innerHTML = `<div><div class="title">${esc(r.cycle_id || r.generated_at || 'Ciclo')}</div><div class="meta">${esc(r.report_type || 'RADAR_FINAL')}${esc(recovery)}</div></div><div class="state ok">Guardado</div>`;
+      el.classList.add('history-btn'); el.innerHTML = `<div><div class="title">${esc(r.cycle_id || r.generated_at || 'Ciclo')}</div><div class="meta">${esc(r.report_type || 'RADAR_FINAL')}${esc(recovery)}</div></div><div class="state ok">Abrir</div>`; el.addEventListener('click',()=>loadHistoryFile(r.file));
       container.appendChild(el);
     });
   }catch(err){
@@ -641,11 +724,16 @@ async function loadData(){
     const response = await fetch('data/latest.json?ts=' + Date.now(), {cache:'no-store'});
     if(!response.ok) throw new Error('No se pudo leer latest.json');
     const data = await response.json();
+    currentCanonicalData=data;
     render(normalizeRadarData(data));
     renderCanonicalFull(data);
+    renderSources(data);
+    updateStaleness(data);
+    setupSearch();
     loadHistory();
   }catch(err){
     render(fallback);
+    setupSearch();
     loadHistory();
   }finally{
     btn.disabled = false;

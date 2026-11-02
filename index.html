@@ -343,6 +343,56 @@ function esc(text){
   return String(text ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
+
+function normalizeRadarData(data){
+  if(data && data.hero && data.metrics && data.sections) return data;
+  const meta=data?.meta||{}, ex=data?.executive_summary||{}, lr=data?.los_rios||{}, leg=data?.legislative||{};
+  const arr=x=>Array.isArray(x)?x:[];
+  const itemText=x=>typeof x==='string'?x:(x?.title||x?.headline||x?.name||x?.summary||x?.text||x?.matter||x?.event||'Registro RADAR');
+  const itemSummary=x=>typeof x==='string'?'':(x?.summary||x?.detail||x?.description||x?.why_it_matters||x?.status||'');
+  const legItems=[...arr(leg?.senate?.items),...arr(leg?.chamber?.items),...arr(leg?.budget_2027?.items)];
+  const changes=legItems.filter(x=>['NEW','MODIFIED','CANCELLED','DISPATCHED','NUEVO','ACTUALIZACIÓN'].includes(String(x?.delta||x?.change||x?.state||'').toUpperCase())).length;
+  const communes=arr(lr?.coverage?.communes).map(c=>typeof c==='string'?c:c.name).filter(Boolean);
+  const cases=arr(data?.cases).map(c=>({name:c?.name||c?.title||'Expediente',status:c?.priority||c?.status||c?.state||'SEGUIMIENTO',next:c?.next_action||c?.next||c?.pending||'Continuar seguimiento'}));
+  const sys=data?.system||{};
+  const systemRows=Object.entries(sys).filter(([,v])=>v && typeof v==='object').map(([k,v])=>({name:(v.name||k).replaceAll('_',' '),state:v.state||v.status||'Activo'}));
+  const agenda=[];
+  [['Ahora',data?.agenda?.now],['24h',data?.agenda?.['24h']],['72h',data?.agenda?.['72h']],['7 días',data?.agenda?.['7d']]].forEach(([label,rows])=>{
+    const a=arr(rows); if(a.length) agenda.push({label,text:a.map(itemText).join(' · ')});
+  });
+  const summaryBlocks=[];
+  if(arr(ex?.what_changed).length) summaryBlocks.push({title:'Qué cambió hoy',text:arr(ex.what_changed).map(itemText).join(' · ')});
+  if(arr(ex?.top_priorities).length) summaryBlocks.push({title:'Prioridades',text:arr(ex.top_priorities).map(itemText).join(' · ')});
+  if(!summaryBlocks.length) summaryBlocks.push({title:'Síntesis',text:ex?.summary||'Sin síntesis disponible.'});
+  const alerts=arr(data?.alerts).map(a=>({level:a?.level||a?.priority||'ALTO',title:itemText(a),summary:itemSummary(a),action:a?.action||a?.recommended_action||a?.next_action||'Continuar seguimiento'}));
+  return {
+    meta:{
+      subtitle:ex?.summary||'RADAR consolidado del gabinete',
+      status:meta?.coverage_status||meta?.status||'Operativo',
+      next_update:meta?.next_update||'Próximo ciclo horario',
+      last_update:meta?.generated_at||meta?.window_end||'Actualizado',
+      owner:'Gabinete Senadora María José Gatica'
+    },
+    hero:{headline:ex?.headline||'Inteligencia legislativa, territorial e institucional',text:ex?.summary||'RADAR consolidado.'},
+    metrics:{
+      'Alertas críticas':alerts.length,
+      'Expedientes activos':cases.length,
+      'Cambios legislativos':changes,
+      'Cobertura Los Ríos':data?.coverage_control?.los_rios||((lr?.coverage?.consulted??0)+'/'+(lr?.coverage?.total??12)),
+      'Estado del sistema':meta?.coverage_status||'Activo'
+    },
+    alerts,
+    sections:{
+      resumen:summaryBlocks,
+      legislativo:legItems.length?legItems.map(x=>itemText(x)+(itemSummary(x)?': '+itemSummary(x):'')):['Sin movimientos legislativos nuevos cargados.'],
+      territorial:communes.length?communes:['Valdivia','Corral','Lanco','Los Lagos','Máfil','Mariquina','Paillaco','Panguipulli','La Unión','Río Bueno','Futrono','Lago Ranco'],
+      expedientes:cases,
+      sistema:systemRows.length?systemRows:[{name:'RADAR',state:'Activo'}],
+      agenda:agenda.length?agenda:[{label:'Seguimiento',text:'Sin hitos cargados.'}]
+    }
+  };
+}
+
 function render(data){
   document.getElementById('subtitle').textContent = data.meta.subtitle;
   document.getElementById('statusText').textContent = "Estado: " + data.meta.status;
@@ -475,7 +525,7 @@ async function loadData(){
     const response = await fetch('data/latest.json?ts=' + Date.now(), {cache:'no-store'});
     if(!response.ok) throw new Error('No se pudo leer latest.json');
     const data = await response.json();
-    render(data);
+    render(normalizeRadarData(data));
     loadHistory();
   }catch(err){
     render(fallback);

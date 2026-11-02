@@ -144,81 +144,97 @@
         "date": "2026-11-02",
         "state": "REPORTADO",
         "summary": "Carabineros y Ministerio Público investigan un enfrentamiento ocurrido en Mehuín, Mariquina. La fuente regional reporta tres personas lesionadas.",
-        "why_it_matters": "Seguridad rural y coordinación preventiva de eventos masivos.",
+        "why_it_matters": "El hecho combina seguridad rural, organización de actividades masivas y coordinación preventiva. Para el gabinete interesa saber si hubo fallas de aviso, fiscalización o respuesta institucional.",
         "source_ids": [
           "s7"
-        ]
+        ],
+        "action": "Seguir Fiscalía, Carabineros y Seremi de Seguridad; oficiar solo si aparecen antecedentes de fallas estructurales o necesidad de reforzar prevención.",
+        "pending": "Número definitivo de lesionados, eventuales detenidos, origen acreditado de la riña y medidas posteriores de seguridad."
       },
       {
         "title": "Angachilla: Fiscalía investiga homicidio frustrado",
         "date": "2026-11-02",
         "state": "REPORTADO",
         "summary": "Un automovilista recibió disparos y permanece fuera de riesgo vital. ECOH, OS9 y Labocar realizan diligencias.",
-        "why_it_matters": "Violencia armada en Valdivia y seguimiento de capacidad investigativa.",
+        "why_it_matters": "Es un episodio de violencia armada dentro de Valdivia. Su evolución puede revelar patrones delictuales y necesidades de coordinación entre Fiscalía ECOH, Carabineros y autoridades regionales.",
         "source_ids": [
           "s8"
-        ]
+        ],
+        "action": "Monitorear diligencias de ECOH/OS9/Labocar y eventual identificación de autores.",
+        "pending": "Móvil, autores, uso del arma, formalizaciones y relación con otros hechos violentos."
       },
       {
         "title": "Peajes de Lanco y La Unión migrarán a sistema mixto",
         "date": "2026-11-02",
         "state": "REPORTADO",
         "summary": "La concesionaria proyecta desde el 8 de marzo de 2027 pistas TAG y pago manual, y desde septiembre de 2029 cobro electrónico proporcional; se informó gratuidad intracomunal para residentes.",
-        "why_it_matters": "Impacto directo en movilidad, tarifas y compromisos de concesiones para Los Ríos.",
+        "why_it_matters": "El cambio de sistema afecta directamente a residentes de Lanco, La Unión y usuarios frecuentes de la Ruta 5. La gratuidad intracomunal y el cronograma contractual son políticamente sensibles.",
         "source_ids": [
           "s10"
-        ]
+        ],
+        "action": "Solicitar antecedente oficial a MOP/Concesiones sobre cronograma, tarifas, tecnología y condiciones de gratuidad para residentes.",
+        "pending": "Texto contractual, resolución que habilita el esquema, tarifa por tramo y mecanismo de acreditación de residentes."
       },
       {
         "title": "L'Étape Chile debutó en Valdivia",
         "date": "2026-11-02",
         "state": "REPORTADO",
         "summary": "El evento reunió cerca de 2.200 ciclistas y confirmó regreso para 2027.",
-        "why_it_matters": "Proyección turística y deportiva de Valdivia.",
+        "why_it_matters": "Tiene valor turístico, económico y de posicionamiento de Valdivia como sede de eventos masivos.",
         "source_ids": [
           "s11"
-        ]
+        ],
+        "action": "Mantener como oportunidad comunicacional y de turismo regional; no requiere gestión urgente.",
+        "pending": "Impacto económico local, evaluación de tránsito/seguridad y condiciones del retorno 2027."
       },
       {
         "title": "Valdivia: más de $2.030 millones para conservación de dos colegios",
         "date": "2026-11-01",
         "state": "CONTEXTO_PREVIO",
         "summary": "Se adjudicaron obras en Escuela Angachilla por $443.837.671 y Colegio Teniente Hernán Merino Correa por $1.586.958.711.",
-        "why_it_matters": "Infraestructura escolar y transición al SLEP.",
+        "why_it_matters": "Son más de $2.030 millones en infraestructura escolar. Para el gabinete importa la correcta ejecución, los plazos y la transición al SLEP.",
         "source_ids": [
           "s12"
-        ]
+        ],
+        "action": "Cruzar adjudicación con calendario de obras, fuente de financiamiento y estado administrativo de los establecimientos.",
+        "pending": "Fecha efectiva de inicio, plazo contractual, empresa adjudicataria y coordinación con SLEP."
       },
       {
         "title": "Futrono: acceso directo al Mocho Choshuenco desde 2027",
         "date": "2026-11-01",
         "state": "CONTEXTO_PREVIO",
         "summary": "MOP enroló un primer tramo de 9 km, proyecta licitación y reconstrucción de un puente en el km 10; luego vendría un segundo tramo de 11 km.",
-        "why_it_matters": "Conectividad, turismo e inversión MOP.",
+        "why_it_matters": "La habilitación mejora conectividad turística y productiva de Futrono y puede transformarse en compromiso territorial visible.",
         "source_ids": [
           "s13"
-        ]
+        ],
+        "action": "Verificar convenio GORE-MOP, etapa de licitación y financiamiento del primer tramo y puente.",
+        "pending": "Fecha de firma de convenio, presupuesto, licitación y calendario de ejecución 2027."
       },
       {
         "title": "FUAS 2027: plazo hasta el 5 de noviembre",
         "date": "2026-10-28",
         "state": "SEGUIMIENTO",
         "summary": "Los Ríos registró 9.334 postulaciones al cierre del primer período.",
-        "why_it_matters": "Acceso a beneficios estudiantiles y comunicación territorial.",
+        "why_it_matters": "El cierre de postulaciones es una oportunidad de servicio público y comunicación territorial para estudiantes y familias.",
         "source_ids": [
           "s14"
-        ]
+        ],
+        "action": "Difundir el plazo y monitorear cobertura regional.",
+        "pending": "Cifra final de postulaciones Los Ríos y brechas territoriales."
       },
       {
         "title": "Prevención estival e incendios",
         "date": "2026-11-02",
         "state": "SEGUIMIENTO",
         "summary": "Medios regionales consignan presentación de un plan regional de protección contra incendios forestales; a nivel nacional rige alerta preventiva por calor hasta el 31 de marzo de 2027.",
-        "why_it_matters": "Preparación regional, agricultura, zonas rurales y coordinación de emergencias.",
+        "why_it_matters": "La temporada de incendios y calor impacta especialmente zonas rurales, agricultura y comunas con interfaz urbano-forestal.",
         "source_ids": [
           "s15",
           "s16"
-        ]
+        ],
+        "action": "Revisar recursos CONAF/SENAPRED, planes comunales y coordinación regional.",
+        "pending": "Detalle del plan regional, dotación, medios aéreos y comunas de mayor riesgo."
       }
     ],
     "regional_media_checked": [
@@ -246,7 +262,10 @@
         "source_ids": [
           "s3",
           "s4"
-        ]
+        ],
+        "why_it_matters": "El respaldo presidencial condiciona la viabilidad política de una salida ministerial y el tono de la agenda legislativa de Justicia.",
+        "action": "Monitorear cambios de posición del Ejecutivo, nuevas declaraciones y efectos en proyectos de ley.",
+        "pending": "Alcance exacto de los decretos cuestionados, decisiones del Ministerio Público y eventual costo político dentro del oficialismo."
       },
       {
         "title": "Oposición mantiene acusación constitucional y exige decretos",
@@ -256,7 +275,10 @@
         "source_ids": [
           "s4",
           "s17"
-        ]
+        ],
+        "why_it_matters": "La eventual acusación constitucional puede reordenar la agenda de la Cámara y tensionar la relación Gobierno-oposición.",
+        "action": "Seguir texto del libelo, patrocinantes y causal constitucional invocada.",
+        "pending": "Ingreso formal, fundamentos jurídicos definitivos y calendario de tramitación."
       },
       {
         "title": "Denuncia contra ministros de la Corte Suprema",
@@ -265,7 +287,10 @@
         "summary": "El RADAR de las 19:00 detectó una denuncia por eventual prevaricación judicial vinculada a rebajas de condenas; paralelamente PNL estudia acusación constitucional y Republicanos anticipa apoyo condicionado.",
         "source_ids": [
           "s18"
-        ]
+        ],
+        "why_it_matters": "Abre una arista institucional distinta al caso Rabat: responsabilidad de magistrados versus responsabilidad administrativa del Ministerio de Justicia.",
+        "action": "Separar jurídicamente ambas controversias y monitorear si la acusación avanza.",
+        "pending": "Fundamentos concretos, ministros individualizados y sustento jurídico de la acusación."
       },
       {
         "title": "Imacec septiembre: +0,2% anual",
@@ -274,7 +299,10 @@
         "summary": "La producción de bienes cayó 2,0% por minería; manufactura creció 4,5%, comercio 4,5% y servicios 0,9%.",
         "source_ids": [
           "s9"
-        ]
+        ],
+        "why_it_matters": "El bajo crecimiento del Imacec es relevante para Presupuesto 2027, recaudación, empleo y expectativas macroeconómicas.",
+        "action": "Incorporar el dato a la lectura presupuestaria y seguir empleo/actividad regional.",
+        "pending": "Descomposición regional no disponible en Imacec; esperar próximos indicadores de empleo e inversión."
       },
       {
         "title": "El Teniente: Sernageomin reportó cerca de 120 observaciones",
@@ -283,7 +311,10 @@
         "summary": "La autoridad señaló que los hallazgos son subsanables y no implican nuevas paralizaciones.",
         "source_ids": [
           "s19"
-        ]
+        ],
+        "why_it_matters": "Las observaciones regulatorias pueden tener impacto en seguridad minera, continuidad operacional y fiscalización pública.",
+        "action": "Seguir respuesta de Codelco y cierre de observaciones.",
+        "pending": "Naturaleza exacta de las 120 observaciones, plazos de subsanación y fiscalizaciones posteriores."
       },
       {
         "title": "Alerta Temprana Preventiva Nacional por calor",
@@ -292,7 +323,10 @@
         "summary": "La medida rige entre el 1 de noviembre de 2026 y el 31 de marzo de 2027 en todo Chile.",
         "source_ids": [
           "s16"
-        ]
+        ],
+        "why_it_matters": "La alerta por calor anticipa presión sobre salud, incendios, agricultura y servicios de emergencia durante el verano.",
+        "action": "Cruzar con planes regionales y comunales de Los Ríos.",
+        "pending": "Pronósticos específicos para Los Ríos y medidas operativas regionales."
       }
     ]
   },
@@ -321,7 +355,10 @@
           "summary": "Sesiones 10:00-13:00 y 15:00-20:00 para boletín 18.702-05.",
           "source_ids": [
             "s1"
-          ]
+          ],
+          "why_it_matters": "La discusión presupuestaria define márgenes de gasto y glosas con impacto directo en Los Ríos y en compromisos de la senadora.",
+          "action": "Obtener acta y resultados oficiales por partida/glosa; marcar cambios respecto del proyecto original.",
+          "pending": "Resultados finales de la jornada y votaciones específicas."
         },
         {
           "title": "Comisión de Trabajo del 4 de noviembre quedó sin efecto",
@@ -329,7 +366,10 @@
           "summary": "La sesión prevista sobre criterios de inversión y pérdidas del Fondo E aparece oficialmente sin efecto.",
           "source_ids": [
             "s1"
-          ]
+          ],
+          "why_it_matters": "La cancelación altera agenda de seguimiento previsional y libera una ventana parlamentaria.",
+          "action": "Registrar nueva fecha cuando se reprograme.",
+          "pending": "Motivo de cancelación y nueva citación."
         },
         {
           "title": "Boletín 15.610-03: plazo de indicaciones",
@@ -337,7 +377,10 @@
           "summary": "Viernes 6 de noviembre de 2026 a las 12:00.",
           "source_ids": [
             "s20"
-          ]
+          ],
+          "why_it_matters": "El plazo abre una ventana concreta para presentar indicaciones o coordinar posición.",
+          "action": "Revisar pertinencia del boletín para la senadora y posibles indicaciones antes del cierre.",
+          "pending": "Estado de indicaciones existentes y posición de la comisión."
         }
       ],
       "next_milestones": [
@@ -361,7 +404,10 @@
           "summary": "Bancadas opositoras mantienen la decisión de impulsar el libelo; el caso condiciona la interlocución legislativa con Justicia.",
           "source_ids": [
             "s17"
-          ]
+          ],
+          "why_it_matters": "Una acusación constitucional aprobada por la Cámara puede trasladar al Senado una función decisoria posterior.",
+          "action": "Monitorear ingreso, comité patrocinante, causal invocada y calendario.",
+          "pending": "Texto definitivo del libelo y correlación de fuerzas en Cámara."
         }
       ],
       "next_milestones": [
@@ -380,7 +426,10 @@
           "summary": "Pidió prorrogar un año el régimen transitorio para obras menores hasta 20.000 UTM y cuestionó eliminación de anticipos bancarios de subsidios de vivienda social.",
           "source_ids": [
             "s2"
-          ]
+          ],
+          "why_it_matters": "La intervención conecta directamente la discusión nacional con obras menores, vivienda social y necesidades territoriales.",
+          "action": "Obtener resultado exacto de la solicitud y si se incorporó alguna glosa o indicación.",
+          "pending": "Votación o acuerdo final, texto aprobado y efecto práctico."
         },
         {
           "title": "Debate por recortes y prioridades",
@@ -388,7 +437,10 @@
           "summary": "La jornada registró críticas transversales por Educación, Vivienda, Obras Públicas y otros programas.",
           "source_ids": [
             "s2"
-          ]
+          ],
+          "why_it_matters": "Las críticas transversales pueden anticipar reposiciones, indicaciones y negociaciones posteriores.",
+          "action": "Separar partidas rechazadas, repuestas y aún pendientes.",
+          "pending": "Actas oficiales y texto comparado."
         },
         {
           "title": "Magnitudes relevantes del proyecto",
@@ -396,7 +448,10 @@
           "summary": "Entre las variaciones divulgadas: Seguridad +7,0%; Vivienda +5,8%; GORE -4,8%; Ciencia -6,4%; Servel -11,9%.",
           "source_ids": [
             "s21"
-          ]
+          ],
+          "why_it_matters": "Las variaciones agregadas orientan prioridades, pero deben revisarse con partidas y bases comparables.",
+          "action": "Cruzar cifras con DIPRES y efectos regionales.",
+          "pending": "Base de comparación exacta y cambios introducidos por la Mixta."
         }
       ],
       "dipres": [
@@ -440,13 +495,19 @@
         "summary": "Solicitó extensión transitoria para licitaciones de obras menores hasta 20.000 UTM y cuestionó eliminación de anticipos para subsidios de vivienda social.",
         "source_ids": [
           "s2"
-        ]
+        ],
+        "why_it_matters": "Es una intervención propia de la senadora con conexión directa a MOP, Vivienda y ejecución territorial.",
+        "action": "Preparar minuta con resultado de la gestión y potencial comunicacional si hubo acogida.",
+        "pending": "Respuesta del Ejecutivo y texto final de las glosas o normas involucradas."
       },
       {
         "title": "Sin otra mención pública nueva de igual relevancia localizada al cierre",
         "date": "2026-11-02",
         "state": "SIN_NOVEDAD_VERIFICADA",
-        "summary": "Se mantiene seguimiento de Senado, prensa nacional/regional y RN."
+        "summary": "Se mantiene seguimiento de Senado, prensa nacional/regional y RN.",
+        "why_it_matters": "La ausencia de nuevas menciones también es información útil para evitar ruido y duplicación.",
+        "action": "Mantener rastreo horario.",
+        "pending": "Nuevas intervenciones, votos u oficios que aparezcan durante la noche."
       }
     ],
     "interventions": [
@@ -475,7 +536,10 @@
         "summary": "La mesa nacional se reunió telemáticamente y discutió la magnitud de la crisis; la línea reportada fue no abandonar al Gobierno ni replicar la conducta que Republicanos tuvo frente a Piñera.",
         "source_ids": [
           "s5"
-        ]
+        ],
+        "why_it_matters": "Define la línea institucional del partido frente a una crisis que podría afectar al Gobierno y a la bancada.",
+        "action": "Monitorear si la directiva transforma esta línea en declaración oficial.",
+        "pending": "Posición formal de bancada de senadores y diputados."
       },
       {
         "title": "RN pide sustento jurídico antes de apoyar AC contra ministros de la Suprema",
@@ -484,7 +548,10 @@
         "summary": "Mientras PNL y Republicanos avanzan en la idea, RN llamó a determinar primero si existe base jurídica.",
         "source_ids": [
           "s18"
-        ]
+        ],
+        "why_it_matters": "Marca cautela jurídica frente a una acusación constitucional contra ministros de la Suprema.",
+        "action": "Seguir fundamentos jurídicos y definición final de bancada.",
+        "pending": "Texto de la AC y votación interna."
       },
       {
         "title": "Voces RN mantienen presión sobre Rabat",
@@ -493,7 +560,10 @@
         "summary": "Rodrigo Ubilla sostuvo que el ministro debería evaluar su continuidad por el costo político y la tensión en el sector.",
         "source_ids": [
           "s6"
-        ]
+        ],
+        "why_it_matters": "Las declaraciones de dirigentes pueden presionar cambios de gabinete y revelar tensiones internas.",
+        "action": "Distinguir opinión individual de postura oficial de RN.",
+        "pending": "Nuevas declaraciones y decisión del Ejecutivo."
       }
     ],
     "institutional_positions": [
@@ -580,55 +650,73 @@
       "name": "Presupuesto 2027",
       "priority": "CRÍTICO",
       "status": "EN CURSO",
-      "next_action": "Obtener resultados oficiales y cruzar con prioridades regionales."
+      "next_action": "Obtener resultados oficiales y cruzar con prioridades regionales.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Obtener resultados oficiales y cruzar con prioridades regionales."
     },
     {
       "name": "Caso Rabat",
       "priority": "CRÍTICO",
       "status": "EN CURSO",
-      "next_action": "Seguir decretos, investigación, AC y propuestas legislativas."
+      "next_action": "Seguir decretos, investigación, AC y propuestas legislativas.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Seguir decretos, investigación, AC y propuestas legislativas."
     },
     {
       "name": "MOP / Obras Los Ríos",
       "priority": "ALTO",
       "status": "EN CURSO",
-      "next_action": "Cruzar presupuesto con cartera y compromisos."
+      "next_action": "Cruzar presupuesto con cartera y compromisos.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Cruzar presupuesto con cartera y compromisos."
     },
     {
       "name": "Peajes Lanco-La Unión",
       "priority": "ALTO",
       "status": "EN CURSO",
-      "next_action": "Solicitar/obtener cronograma oficial MOP-Concesiones y condiciones para residentes."
+      "next_action": "Solicitar/obtener cronograma oficial MOP-Concesiones y condiciones para residentes.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Solicitar/obtener cronograma oficial MOP-Concesiones y condiciones para residentes."
     },
     {
       "name": "Seguridad Los Ríos",
       "priority": "ALTO",
       "status": "EN CURSO",
-      "next_action": "Seguir Mehuín y Angachilla; detectar brechas institucionales."
+      "next_action": "Seguir Mehuín y Angachilla; detectar brechas institucionales.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Seguir Mehuín y Angachilla; detectar brechas institucionales."
     },
     {
       "name": "Educación/FUAS/SLEP",
       "priority": "MEDIO",
       "status": "SEGUIMIENTO",
-      "next_action": "Comunicar plazo FUAS y seguir conservación de establecimientos."
+      "next_action": "Comunicar plazo FUAS y seguir conservación de establecimientos.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Comunicar plazo FUAS y seguir conservación de establecimientos."
     },
     {
       "name": "Mocho Choshuenco / Futrono",
       "priority": "MEDIO",
       "status": "SEGUIMIENTO",
-      "next_action": "Verificar convenio GORE-MOP y licitación de primera etapa."
+      "next_action": "Verificar convenio GORE-MOP y licitación de primera etapa.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Verificar convenio GORE-MOP y licitación de primera etapa."
     },
     {
       "name": "Prevención incendios y calor",
       "priority": "MEDIO",
       "status": "SEGUIMIENTO",
-      "next_action": "Cruzar plan regional con recursos y comunas de mayor riesgo."
+      "next_action": "Cruzar plan regional con recursos y comunas de mayor riesgo.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Cruzar plan regional con recursos y comunas de mayor riesgo."
     },
     {
       "name": "RN / estabilidad oficialista",
       "priority": "ALTO",
       "status": "SEGUIMIENTO",
-      "next_action": "Monitorear posición institucional y efectos de la crisis Rabat."
+      "next_action": "Monitorear posición institucional y efectos de la crisis Rabat.",
+      "why_it_matters": "Expediente activo del gabinete que requiere seguimiento periódico y cierre verificable.",
+      "pending": "Monitorear posición institucional y efectos de la crisis Rabat."
     }
   ],
   "commitments": [],
@@ -829,7 +917,7 @@
     }
   },
   "full_report": {
-    "title": "RADAR — CONSOLIDADO DEL DÍA · 2 NOVIEMBRE 2026",
-    "body": "Consolidado extraordinario elaborado a solicitud del jefe de gabinete a las 19:21. Prioridades: Presupuesto 2027 y efectos en Los Ríos; crisis Rabat y posición de RN; seguridad regional; economía; peajes y conectividad; educación/FUAS; prevención estival. El informe completo está estructurado en los campos del JSON y se actualizará nuevamente en el ciclo de las 20:00."
+    "title": "RADAR — CONSOLIDADO DETALLADO DEL DÍA · 2 NOVIEMBRE 2026",
+    "body": "CORTE: 19:21 horas.\n\n1. LOS RÍOS\nSeguridad: Mehuín registra una riña con tres personas lesionadas durante una cabalgata no autorizada; Angachilla registra un homicidio frustrado con arma de fuego bajo investigación de ECOH, OS9 y Labocar. Ambos casos se mantienen como hechos reportados y requieren actualización judicial/policial antes de extraer conclusiones estructurales.\n\nInfraestructura y conectividad: el cambio proyectado de los peajes de Lanco y La Unión hacia un esquema mixto TAG/pago manual desde marzo de 2027 y electrónico proporcional desde 2029 tiene impacto territorial directo. El punto crítico para gestión es obtener el cronograma oficial de MOP/Concesiones y las reglas de gratuidad intracomunal. En Futrono, el acceso al Mocho Choshuenco avanza administrativamente con un primer tramo aproximado de 9 km y un puente; falta verificar convenio, licitación y financiamiento.\n\nEducación: se registran más de $2.030 millones en conservación de dos establecimientos de Valdivia. El FUAS 2027 mantiene plazo hasta el 5 de noviembre, con 9.334 postulaciones regionales informadas en el primer período.\n\nPrevención: el inicio de temporada de calor e incendios obliga a mantener seguimiento regional de CONAF/SENAPRED, recursos y planes comunales.\n\n2. NACIONAL\nCaso Rabat: el ministro sostiene contar con respaldo presidencial, mientras la oposición mantiene presión por acusación constitucional, entrega de decretos y atención a víctimas. El análisis debe separar la responsabilidad política del ministro, la investigación del Ministerio Público y la eventual necesidad de correcciones legislativas. En paralelo, aparece una discusión distinta sobre posibles responsabilidades de ministros de la Corte Suprema por rebajas de condena; no deben confundirse ambos planos.\n\nEconomía: el Imacec de septiembre creció 0,2% anual. La minería incidió negativamente; comercio y servicios mostraron crecimiento. El dato es relevante para la discusión presupuestaria y las expectativas de actividad.\n\n3. LEGISLATIVO\nLa Comisión Especial Mixta de Presupuestos estuvo citada en dos bloques durante el día. A la hora del cierre no se había consolidado en este RADAR el resultado oficial completo de todas las partidas y glosas. El próximo ciclo debe reemplazar cualquier lectura de prensa por actas y documentos oficiales.\n\nLa Comisión de Trabajo del 4 de noviembre quedó sin efecto. El boletín 15.610-03 mantiene plazo de indicaciones el 6 de noviembre a las 12:00.\n\n4. SENADORA MARÍA JOSÉ GATICA\nLa principal intervención pública del día fue en Presupuesto 2027: solicitó extender por un año el régimen transitorio para obras menores hasta 20.000 UTM y cuestionó la eliminación de anticipos bancarios vinculados a subsidios de vivienda social. La gestión debe seguirse hasta conocer si hubo acogida y cómo quedó el texto final.\n\n5. RENOVACIÓN NACIONAL\nLa directiva analizó la crisis Rabat y, según reportes de prensa, evitó una ruptura con el Gobierno. Paralelamente, voces del partido presionan por mayor responsabilidad política del ministro. RN también ha mostrado cautela frente a una eventual acusación constitucional contra ministros de la Corte Suprema, exigiendo primero sustento jurídico.\n\n6. GESTIONES PRIORITARIAS\nPrimero, cerrar Presupuesto 2027 con documentos oficiales y efectos concretos para Los Ríos. Segundo, mantener el expediente Rabat separado en sus dimensiones jurídica, política y legislativa. Tercero, obtener información oficial de Concesiones/MOP sobre peajes de Lanco y La Unión. Cuarto, seguir Mehuín y Angachilla sin sobrerreaccionar antes de contar con antecedentes judiciales adicionales.\n\n7. LIMITACIONES\nEste consolidado corresponde al corte de las 19:21 y no constituye cierre definitivo del día. La Comisión Mixta estaba citada hasta las 20:00, por lo que el RADAR de las 20:00 debe actualizar resultados oficiales y cualquier novedad posterior."
   }
 }
